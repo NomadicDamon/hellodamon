@@ -1,0 +1,1292 @@
+
+
+<!DOCTYPE html>
+<html lang=en>
+<head>
+	<meta charset="UTF-8">
+	<link href="https://fonts.googleapis.com/css?family=Dosis|Staatliches" rel="stylesheet">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Damon Hart - Front End Web Developer</title>
+	
+	<meta property="og:title" content="Damon Hart" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://hellodamon.com" />
+	<meta property="og:image" content="https://hellodamon.com/soc-preview.png" />
+	<meta property="og:description" content="I am a front end web developer living and working in Portland, Oregon.">
+	
+	<meta name="twitter:card" content="summary_large_image">
+		<meta name="twitter:creator" content="@damonbhart">
+	<meta name="twitter:title" content="Damon Hart">
+	<meta name="twitter:description" content="I am a front end web developer living and working in Portland, Oregon.">
+	<meta name="twitter:image" content="https://hellodamon.com/soc-preview2.png">
+
+	<meta name="description" content="I am a front end web developer living and working in Portland, Oregon.">
+	<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+	<link rel="mask-icon" href="safari-pinned-tab.svg" color="#5bbad5">
+	<meta name="msapplication-TileColor" content="#da532c">
+	<meta name="theme-color" content="#ffffff">	
+	<style>
+	/*variables*/
+	#quote {
+		fill: #fff;
+		max-width: 30px;
+	}
+	svg {
+		width: 100%;
+	}
+	:root {
+		--main-cta-backgroundcolor: #08eac1;
+		--special-cta-backgroundcolor: #ea08d9;
+		--special-cta-color: #fff;
+		--main-cta-color: #010101;
+		--main-cta-hover-color: #fff;
+		--inner-background-color: #fff;
+		--page-title-color: #fff;
+		--page-background-color: #010101;
+	}
+	:root.light {
+		--main-cta-backgroundcolor: #646464;
+		--special-cta-backgroundcolor: #c5052f;
+		--special-cta-color: #fff;
+		--main-cta-color: #fff;
+		--main-cta-hover-color: #c5052f;
+		--inner-background-color: #ccc;
+		--page-title-color: #ccc;
+		--page-background-color: #fff;
+	}
+	a#colorswitch {
+		position: fixed;
+		z-index: 8;
+		top: 20px;
+		right: 20px;
+	}
+	/*testimonials CSS*/
+	a {
+		cursor: pointer;
+	}
+	a#closeportoverlay,
+	a#closetestbutton {
+		position: fixed;
+		top: 10vh;
+		right: 10vw;
+		z-index: 999;
+	}
+	a#testslidenext {
+		z-index: 999;
+		background-color: var(--special-cta-backgroundcolor);
+		color: var(--special-cta-color);
+	}
+	.slide {
+		opacity: 0;
+		transition: 1s;
+		transform: translatey(-20vh);
+		grid-area: 1/1/2/2;
+		margin: 0 auto;
+	}
+	.slide.currentslide {
+		opacity: 1;
+		transform: none;
+	}
+	.slidecontainer {
+		display: grid;
+		margin-bottom: 20px;
+		align-items: center;
+	}
+	#testimonialsoverlay h2 {
+		position: fixed;
+		top: -10px;
+		left: -330px;
+		writing-mode: tb-rl;
+		font-size: 300px;
+		height: 200vh;
+		color: #eee;
+		transition: 1s;
+	}
+	#testimonialsoverlay h2 span:nth-child(1) {
+		z-index: 1;
+		margin-left: 0vh;
+		margin-top: -100vh;
+	}
+	#testimonialsoverlay h2 span:nth-child(2) {
+		position: fixed;
+		right: -80px;
+		writing-mode: tb-rl;
+		height: 200vh;
+		transition: 1s;
+		color: #ddd;
+		z-index: 0;
+		top: -250px;
+		margin-top: 100vh;
+	}
+	#portfoliooverlay, #testimonialsoverlay {
+		background: rgba(255,255,255,1);
+			min-height: 100vh;
+			width: 100vw;
+			display: flex;
+			flex-direction: column;
+			text-align: center;
+			justify-content: center;
+			align-items: center;
+			position: fixed;
+			z-index: -1;
+			transition: 1s;
+			opacity: 0;
+    }
+	#testimonialsoverlay.visible {
+		opacity: 1;
+		z-index: 99;
+	}
+	#testimonialsoverlay.visible h2 span:nth-child(1) {
+		margin-top: 0vh;
+		transition: 1s;
+    }
+	#testimonialsoverlay.visible h2 span:nth-child(2) {
+		margin-top: 0vh;
+		transition: 1s;
+	}
+	#testimonialsoverlay p {
+    font-size: 24px;
+	}			
+	#testimonialsoverlay .slide {
+		max-width: 600px;
+		z-index: 9;
+			width: 80%;
+				font-size: 18px;
+    }
+	#testimonialsoverlay .attribution {
+		font-size: 22px;
+		font-family: 'Staatliches', cursive;
+    }
+	/*END testimonials CSS*/
+	/*portfolio overlay CSS*/
+	#portfoliooverlay.opened {
+		color: #fff;
+		z-index: 999;
+		opacity: 1;
+		background: rgba(0,0,0,.9);
+	}
+	#portfoliooverlay h2, #portfoliooverlay p {
+		color: #fff;
+		max-width: 600px;
+		width: 90%;
+		justify-content: center;
+	}
+	#portfoliooverlay p {
+		font-size: 18px;
+	}
+	#portfoliooverlay a {
+		margin-top: 20px;
+	}
+	.specialcta {
+		background: var(--special-cta-backgroundcolor);
+		color: var(--special-cta-color);
+	}
+	/*END portfolio overlay*/
+    body {
+			margin: 0px;
+			display: grid;
+			font-family: 'Dosis', sans-serif;
+			
+		}
+		.overlay, .pagecontainer {
+			grid-area: 1/1/2/2;
+		}
+		.overlay {
+			background-color: rgba(0,0,0,.9);
+			min-height: 100vh;
+			height: 100%;
+			width: 100vw;
+			z-index: 2;
+			justify-content: center;
+			align-items: center;
+			display: flex;
+			transition: .4s;
+			opacity: 0;
+			z-index: -1;
+			position: fixed;
+		}
+		.overlay.visible {
+			opacity: 1;
+			z-index: 999;
+		}
+		.overlay a {
+			margin: 40px;
+		}
+		a {
+			color: #fff;
+			background: var(--main-cta-backgroundcolor);
+			color: var(--main-cta-color);
+			text-decoration: none;
+			display: inline-block;
+			margin-top: 2px;
+			padding: 0px 4px;
+    }
+    .inner {
+			background: var(--inner-background-color);
+			/*overflow: hidden;*/
+		}
+    .outer {
+			background: var(--page-background-color);
+			max-width: 100vw;
+			min-height: 100vh;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+    }
+		.snippet {
+			display: grid;
+			grid-template-columns: 1fr 4fr;
+			max-width: 800px;
+			margin: 0 auto;
+			grid-gap: 20px;
+			font-size: 18px;
+			transition: .75s;
+			-webkit-font-smoothing: antialiased;
+			-moz-osx-font-smoothing: grayscale;
+		}
+		.snippet.animated {
+			transform: initial;
+			opacity: 1;
+		}
+		#closeoverlaybtn {
+			z-index: 99999;
+			position: fixed;
+			right: 40px;
+			top: 40px;
+			margin: 0px;
+			height: auto;
+			width: auto;
+			border-radius: 0;
+		}
+		.bio {
+			display: flex;
+			flex-direction: column;
+			justify-content: flex-end;
+			align-items: flex-end;
+			line-height: 1.4;
+			-webkit-font-smoothing: antialiased !important;
+			-moz-osx-font-smoothing: grayscale;
+		}
+		.links, .links2 {
+			grid-column-start: 2;
+		}
+		h1 {
+			transform: rotate(180deg);
+			font-size: 154px;
+			font-family: 'Staatliches', cursive;
+			line-height: 130px;
+			grid-area: 1/1/4/2;
+			writing-mode: tb-rl;
+			writing-mode: sideways-rl;
+			margin: -20px;
+			background: var(--page-background-color);
+			padding: 20px 24px 20px 0px;
+			margin-right: 0px;
+			text-align: right; 
+			-webkit-font-smoothing: antialiased;
+			-moz-osx-font-smoothing: grayscale;
+			color: var(--page-title-color);
+			cursor: default;
+		}
+		span.a-inline-c:after {
+				background: var(--main-cta-backgroundcolor);
+				content: " ";
+				display: block;
+				height: 5px;
+				width: 100%;
+				overflow: hidden;
+				transform: translateX(101%);
+		}
+    .a-list-c a:focus,
+			.a-inline-c a:focus, 
+		.a-list-c a:hover,
+			.a-inline-c a:hover {
+				background: var(--main-cta-color);
+				color: var(--main-cta-hover-color);
+				transition: .5s;
+				-webkit-font-smoothing: antialiased;
+				-moz-osx-font-smoothing: grayscale;
+			}
+    span.a-inline-c:focus::after,
+		span.a-inline-c:hover::after {
+		  transform:none;
+			transition: .5s;
+		}
+		span.a-inline-c {
+			display: inline-block;
+			overflow: hidden;
+			margin-bottom: -10px;
+		}
+		h2 {
+			
+			font-family: 'Staatliches', cursive;
+			color: #000000;
+			display: flex;
+			letter-spacing: 1.1px;
+			font-size: 19px;
+			-webkit-font-smoothing: antialiased;
+			-moz-osx-font-smoothing: grayscale;
+		}
+		.links2 li {
+			display: inline;
+			-webkit-font-smoothing: antialiased;
+			-moz-osx-font-smoothing: grayscale;
+		}
+		.links2 ul {
+			padding-left: 0px;
+			-webkit-font-smoothing: antialiased;
+			-moz-osx-font-smoothing: grayscale;
+		}
+		.links li a {
+			text-decoration: none;
+			background: var(--special-cta-backgroundcolor);
+			color: var(--special-cta-color);
+			padding: 2px 5px;
+			line-height: 1.8;
+			-webkit-font-smoothing: antialiased;
+			-moz-osx-font-smoothing: grayscale;
+        }
+    .links ul {
+			list-style: none;
+			padding-left: 0px;
+			margin-bottom: 7px;
+		}
+		.rightlink svg {
+			color: #000;
+			width: 40px;
+			margin-right: 10px;
+    	margin-top: 2px;
+		}
+		.rightlink a {
+			background: transparent !important;
+			-webkit-font-smoothing: antialiased;
+			-moz-osx-font-smoothing: grayscale;
+		}
+		a#sayhi {
+			border-radius: 50%;
+			font-size: 22px;
+			background: transparent;
+			color: #010101;
+			border: 0px;
+			display: flex;
+			align-items: center;
+			-webkit-font-smoothing: antialiased;
+			-moz-osx-font-smoothing: grayscale;
+			margin-left: -67px;
+			cursor: pointer;
+		}
+		a#sayhi svg {
+			fill:var(--special-cta-backgroundcolor);
+		}
+		a#sayhi img {
+			width: 30px;
+			height: 30px;
+			margin-right: 5px;
+			z-index: 2;
+		}
+		a#sayhi.visible {
+			transform: translateX(0px);
+			opacity: 1;
+		}
+		h1 span {
+			color: var(--main-cta-backgroundcolor);
+		}
+		.rightlink a {
+			color:var(--main-cta-backgroundcolor);
+			-webkit-font-smoothing: antialiased;
+			-moz-osx-font-smoothing: grayscale;
+		}
+		.links a {
+			display: flex;
+			margin-right: -100vw;
+			-webkit-font-smoothing: antialiased;
+			-moz-osx-font-smoothing: grayscale;
+		}
+		a.contactbtn {
+			transform: translateX(-100px);
+			opacity: 0;
+			transition: .5s;
+			background: transparent;
+			display: grid;
+			width: 220px;
+    		height: 220px;
+		}
+		a.contactbtn embed {
+			grid-area: 1/1;
+			opacity: 0;
+			transition: .75s;
+			font-size: 12px;
+			transform: rotate(45deg);
+		}
+		#overlay.visible a.contactbtn embed {
+			opacity: 1;
+			transform: rotate(0deg);
+		}
+		a.contactbtn svg {
+			grid-area: 1/1;
+			width: 100px;
+			align-self: center;
+			justify-self: center;
+		}
+		#overlay.visible a.contactbtn {
+			transform: translateX(0px);
+    		opacity: 1;
+		}
+		svg.phonebtn {
+			transform: translate(7px,0px);
+		}
+		svg.mailbtn {
+			transform: translate(2px, 7px);
+		}
+		.delayedfallin {
+			opacity: 1;
+			animation-name: delayedfallin;
+			animation-duration: 1.0s;
+		}
+		.fallin {
+			opacity: 1;
+			animation-name: fallin;
+			animation-duration: 1.0s;
+		}
+		.bounced {
+			animation-name: bounced;
+			animation-duration: 1.0s;
+		}
+
+		#sayhi:before {
+			font-size: 32px;
+			opacity: 0;
+			
+			animation-duration: 1s;
+			animation-delay: .5s;
+			background: url(sidewave.svg) no-repeat;
+			content: " ";
+			width: 75.5px;
+			height: 66px;
+			display: inline-block;
+			background-size: contain;
+			margin-right: -53px;
+			transform: scale(.2);
+			transition: .5s;
+			z-index: 0;
+		}
+		.mobilelinks { 
+			display: none;
+		}
+		svg#Layer_1 {
+				fill: var(--special-cta-backgroundcolor);
+				max-width: 40px;
+				animation: shake infinite 3s;
+		}
+		ul.mobilelinks a:hover svg#Layer_1 {
+				fill: #fff;
+		}
+		svg#Layer_1 circle {
+				fill: #010101;
+		}
+		svg#Layer_1 circle:nth-child(1) {
+				animation: pulsedotone infinite 3s;
+		}
+		svg#Layer_1 circle:nth-child(2) {
+				animation: pulsedottwo infinite 3s;
+		}
+		svg#Layer_1 circle:nth-child(3) {
+				animation: pulsedotthree infinite 3s;
+		}
+		#sayhimobile {
+			animation: pulsebubble infinite 3s;
+		}
+		/*entry animation*/
+		h1 {
+			animation: entry 1s forwards;
+		}
+		h1 span {
+			animation: entryspan 1s forwards;
+			opacity: 0;
+		}
+		.bio, .links2, .links {
+			animation: entryspan 1.2s forwards;
+		}
+		.links {
+			z-index: 9;
+		}
+		@keyframes entry {
+			from {
+				color: var(--page-background-color);
+				padding: 20px 120vh 20px 120vh;
+				margin-left: -120vh;
+			}
+			80% {
+				
+				color: #010101;
+			}
+			to {
+				padding: 20px 24px 20px 0px;
+				margin-left:-20px;
+				color: var(--page-title-color);
+			}
+		}
+		@keyframes entryspan {
+			from {
+				opacity: 0;
+			}
+			80% {
+				opacity: 0;
+			
+			}
+			to {
+				opacity: 1;
+			}
+		}
+		/* END entry animation*/
+		@keyframes pulsedotone {
+				from {
+						opacity: 1;
+				}
+				10% {
+						opacity: 0;
+				}
+				20% {
+						opacity: 1;
+				}
+				to {
+						opacity: 1;
+				}
+		}
+		@keyframes pulsedottwo {
+				from {
+						opacity: 1;
+				}
+				10% {
+						opacity: 1;
+				}
+				20% {
+						opacity: 0;
+				}
+				30% {
+						opacity: 1;
+				}
+				to {
+						opacity: 1;
+				}
+		}
+		@keyframes pulsedotthree {
+				from {
+						opacity: 1;
+				}
+				20% {
+						opacity: 1;
+				}
+				30% {
+						opacity: 0;
+				}
+				40% {
+						opacity: 1;
+				}
+				to {
+						opacity: 1;
+				}
+		}
+		@keyframes shake {
+				from {
+					transform:rotate(0deg);
+				}
+				10% {
+					transform:rotate(-5deg);
+				}
+				20% {
+					transform:rotate(5deg);
+				}
+				30% {
+					transform:rotate(-5deg);
+				}
+				40% {
+					transform:rotate(0deg);
+				}
+				to {
+					transform:rotate(0deg);
+				}
+		}
+		@keyframes flyoutright {
+			from {
+				opacity: 0;
+				transform: translateX(60px) scale(0);
+			}
+			25% {
+				opacity: 1;
+			}
+			40% {
+				opacity: 0;
+				transform: translateX(-20px) scale(1.2);
+			}
+			40.01% {
+				opacity: 0;
+				transform: translateX(70px) scale(0);
+			}
+			75% {
+				opacity: 1;
+			}
+			to {
+				opacity: 0;
+				transform: translateX(-40px) scale(1.2);
+			}
+		}
+		@keyframes flyoutleft {
+			from {
+				opacity: 0;
+				transform: translateX(-60px) scale(0);
+			}
+			25% {
+				opacity: 1;
+			}
+			40% {
+				opacity: 0;
+				transform: translateX(20px) scale(1.2);
+			}
+			40.01% {
+				opacity: 0;
+				transform: translateX(-70px) scale(0);
+			}
+			75% {
+				opacity: 1;
+			}
+			to {
+				opacity: 0;
+				transform: translateX(40px) scale(1.2);
+			}
+		}
+		@keyframes bounced {
+			from {
+				opacity: 1;
+				margin-left: 0px;
+			}
+			30% {
+				opacity: 1;
+				margin-left: 0%;
+			}
+			40% {
+				opacity: 1;
+				margin-left: 0%;
+			}
+
+			50% {
+				opacity: 1;
+				margin-left: 20px;
+			}
+
+			60% {
+				opacity: 1;
+				margin-left: 00px;
+			}
+
+			70% {
+				opacity: 1;
+				margin-left: 20px;
+			}
+
+			to {
+				opacity: 1;
+				margin-left: 00%;
+			}
+		}
+		@keyframes fallin {
+			from {
+				opacity: 1;
+				margin-left: 10%;
+			}
+
+			to {
+				opacity: 1;
+				margin-left: 00%;
+			}
+		}
+		@keyframes delayedfallin {
+			from {
+				opacity: 1;
+				margin-left: 10%;
+			}
+
+			25% {
+				opacity: 1;
+				margin-left: 10%;
+			}
+
+			to {
+				opacity: 1;
+				margin-left: 00%;
+			}
+		}
+		@keyframes growout {
+				from {
+					opacity: 0;
+					transform: scale(0.2);
+				}
+				20% {
+					opacity: 1;
+					
+				}
+				to {
+					opacity: 0;
+					transform: scale(1.0);
+				}
+			}
+		@media (max-width: 400px) {
+			h1 {
+				font-size: 124px;
+				line-height: 90px;
+				margin: -10px;
+			}
+		}
+		@media (max-width: 1079.99px) {
+			a#sayhi {
+				transform: rotate(-90deg) translate(76px,90px);
+				width: 230px;
+				position: absolute;
+				right: 5px;
+			}
+		}
+		@media (max-width: 600px) {
+			.overlay {
+				flex-direction: column;
+			}
+			p {
+				margin-top: 0px;
+			}
+			.links2 {
+				order: 1;
+			}
+			.links,  .bio {
+				order: 2;
+				justify-content: flex-start;
+			}
+			a#sayhi {
+				margin-left: -28px;
+				transform: inherit;
+				width: inherit;
+				position: inherit;
+				right: inherit;
+			}
+			.snippet {
+				grid-template-rows: 60px auto;
+			}
+			h1 {
+				font-size: 133px;
+				font-family: 'Staatliches', cursive;
+				line-height: 140px;
+				margin-left: -16px;
+			}
+			#sayhi:after, 	#sayhi:before {
+				animation-duration: 1s;
+			}
+			#sayhi:after {
+				display: none;
+			}
+			a#sayhi:before {
+
+				margin-right: -53px;
+  
+			}
+			.links2,
+			.links {
+				display: none;
+			}
+			.mobilelinks{
+				position: fixed;
+				bottom: 10px;
+    		right: 10px;
+				display: flex;
+				z-index: 2;
+	
+			}
+			.mobilelinks li {
+				width: 50px;
+				height: 50px;
+				margin: 10px;
+				list-style: none;
+				padding: 4px;
+			}
+			#testimonialsoverlay h2 {
+				left: -269px;
+				font-size: 240px;
+			}
+			#testimonialsoverlay h2 span:nth-child(2) {
+				top: -220px;
+			}
+			ul.mobilelinks a {
+					width: calc(100% + 2px);
+					height: calc(100% + 2px);
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					margin: -2px;
+					color: #fff;
+					background: #010101;
+					border: 2px solid #fff;
+			}
+			ul.mobilelinks a:hover {
+				background: var(--special-cta-backgroundcolor);
+			}
+			a#mobileactivationbutton {
+					background: var(--special-cta-backgroundcolor);
+					color: var(--special-cta-color);
+					overflow: overlay;
+			}
+			ul.mobilelinks li  {
+					grid-area: 1/1/2/2;
+					transition: 1s;
+			}
+			ul.mobilelinks li:nth-child(1)  {
+					z-index: 1;
+			}
+			ul.mobilelinks {
+					display: grid;
+			}
+			ul.mobilelinks.active li:nth-child(2)  {
+					transition-delay: .5s;
+					transform: translatex(calc(-100% - 10px));
+			}
+			ul.mobilelinks.active li:nth-child(3)  {
+					transition-delay: .25s;
+					transform: translatex(calc(-200% - 20px));
+			}
+			ul.mobilelinks.active li:nth-child(4)  {
+					transition-delay: 0s;
+					transform: translatex(calc(-300% - 30px));
+			}
+			.bio {
+				padding-top: 10px;
+			}
+			#mobilelinks.active .open {
+					transform: scalex(1);
+					opacity: 1;
+			}
+			#mobilelinks.active .closed {
+					transform: scalex(0);
+					opacity: 0;
+			}
+			#mobilelinks .closed {
+					transform: scalex(1);
+					opacity: 1;
+			}
+			#mobilelinks .open {
+					transform: scalex(0);
+					opacity: 0;
+			}
+			#mobilelinks.active #mobileactivationbutton {
+					background: #010101;
+					transition: 1s;
+			}
+			#mobilelinks .open,
+			#mobilelinks .closed {
+					transition: 1s;
+					grid-area: 1/1/2/2;
+			}
+			#mobileactivationbutton {
+					display: grid;
+			}
+		}
+		@media (max-width: 400px) {
+			.mobilelinks {
+				position: sticky;
+				margin-left: auto;
+				margin-right: 10px;
+				margin-top: -90px;
+			}
+			h1 {
+				padding: 120px 24px 20px 0px;
+			}
+		}
+    @media (min-width:1080px) {
+			svg#Layer_1 circle {
+				transform: scale(1.2) translate(-8px, -10px);
+			}
+			.links, .bio {
+				order: 1;
+			}
+			.links2 {
+				order: 2;
+			}
+			h2.a-list-c-header {
+				writing-mode: tb-rl;
+				transform: rotate(180deg) translate(50px, -92px);
+				min-height: 121px;
+			}
+			.inner {
+				transform: rotate(45deg);
+				margin-top: 200px;
+				min-width: 200vw;
+				margin: 280px -50vw 0;
+			}
+			.links2 ul {
+				transform: rotate(-90deg) translate(80px, -380px);
+				width: 300px;
+			}
+			.outer { 
+				height: 750px;
+				overflow-y: hidden;
+			}
+			.links a {
+				display: inline-block;
+				margin-right: 0;
+			}
+			.links {
+				transform: translate(0px,261px);
+			}
+			.bio {
+				margin-top: -70px;
+			}
+			.a-inline-c {
+				display: inline-block;
+				overflow: hidden;
+				margin-bottom: -5px;
+			}
+			.a-inline-c a:before, .a-inline-c a:before {
+				opacity: 0;
+			}
+			.a-inline-c a:focus::before, .a-inline-c a:hover::before {
+				opacity: 1;
+			}
+		}
+		@media (min-width:600px) {
+			.outer {
+				overflow-x: hidden;
+			}
+			svg#Layer_1 circle {
+				fill: #fff;
+			}
+		}
+		@media (max-height: 500px) {
+			a.contactbtn {
+				width: 130px;
+				height: 130px;
+				margin: 10px;
+			}
+			.overlay {
+				flex-direction: row;
+			}
+		}
+	</style>
+</head>
+<body>
+	<a id=colorswitch>switch it up</a>
+	<div class=pagecontainer>
+		<div class=outer>
+			<div class=inner>
+				<div class=city></div>
+				<div id=snippet class=snippet itemscope itemtype="https://schema.org/Person">
+					<h1 itemprop=name><span>D</span>AMON <span>H</span>ART</h1>
+					<div class=bio>
+						<p><span class=dropcap>I</span> am a web designer and developer living and working in Portland, Oregon. I specialize in responsive web design, illustration, product photography, and more. I work regularly with Wordpress, Drupal, Shopify, I'm a BigCommerce design partner, et al.</p>
+						<p>When not working you can find me watching <span class=a-inline-c><a rel=noopener target=blank title="Don Hertzfeldt" href="https://en.wikipedia.org/wiki/World_of_Tomorrow_(film)">animated shorts</a></span>, walking around Portland in search of cats and/or <span class=a-inline-c><a title="a cocktail" rel=noopener target=blank href="https://www.thrillist.com/venues/drink/portland/bars/the-pied-cow">a cup of coffee</a></span>, buried in a <span class=a-inline-c><a rel=noopener target=blank title="scifi novel" href="https://en.wikipedia.org/wiki/Void_Trilogy">book</a></span>, on the river, or serving my feline overlord.</p>
+					</div>
+					<div class=links>
+						<ul>
+							<li><span class=a-list-c><a id=testtrigger rel=noopener target=blank>What People Are Saying</a></span></li>
+							<li><span class=a-list-c><a  rel=noopener target=blank id="portoverlaytrigger">Outdated Portfolio of My Work</a></span></li>
+						</ul>
+					</div>
+					<div class=links2>
+						<ul>
+							<li class="rightlink"><a id=sayhi>
+								<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve">
+									<style type="text/css">
+										.st0{fill:#FFFFFF;}
+									</style>
+									<polygon points="13,80 73.6,80 88,92 88,80 88,20 13,20 "></polygon>
+									<g>
+										<circle class="st0" cx="32.3" cy="52" r="5"></circle>
+										<circle class="st0" cx="49" cy="52" r="5"></circle>
+										<circle class="st0" cx="65.7" cy="52" r="5"></circle>
+									</g>
+									</svg>say hello.</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class=overlay id=overlay>
+		    <a id=closeoverlaybtn>
+				[close]
+			</a>
+			<a target="_blank" class=contactbtn href="https://calendly.com/hellodamon/">
+				<embed src=phonebtnlabel.svg></embed>
+				<svg alt="" class=phonebtn version="1.1" id="Capa_1a" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+				viewBox="0 0 58.981 58.981" style="enable-background:new 0 0 58.981 58.981;" xml:space="preserve">
+					<g>
+						<g>
+							<path style="fill:#545E73;" d="M36.085,58H10.896c-1.881,0-3.405-1.525-3.405-3.405V3.405C7.491,1.525,9.015,0,10.896,0h25.189
+								c1.881,0,3.405,1.525,3.405,3.405v51.189C39.491,56.475,37.966,58,36.085,58z"/>
+							<rect x="7.491" y="6" style="fill:#8697CB;" width="32" height="40"/>
+							<circle style="fill:#323A45;" cx="23.491" cy="52" r="3"/>
+							<path style="fill:#323A45;" d="M23.491,4h-4c-0.553,0-1-0.447-1-1s0.447-1,1-1h4c0.553,0,1,0.447,1,1S24.043,4,23.491,4z"/>
+							<path style="fill:#323A45;" d="M27.491,4h-1c-0.553,0-1-0.447-1-1s0.447-1,1-1h1c0.553,0,1,0.447,1,1S28.043,4,27.491,4z"/>
+						</g>
+						<g>
+							<path style="fill:var(--special-cta-backgroundcolor)" d="M39.491,42.181c0.969-2.183,3.109-4.2,5.684-4.2c3.467,0,5.964,2.821,6.278,6.183
+								c0,0,0.17,0.835-0.203,2.337c-0.508,2.046-1.701,3.864-3.311,5.251l-8.447,7.228l-8.447-7.229
+								c-1.61-1.387-2.803-3.205-3.311-5.251c-0.373-1.502-0.203-2.337-0.203-2.337c0.314-3.362,2.811-6.183,6.278-6.183
+								C36.381,37.981,38.522,39.998,39.491,42.181z"/>
+						</g>
+					</g>
+					<g>
+					</g>
+					<g>
+					</g>
+					<g>
+					</g>
+					<g>
+					</g>
+					<g>
+					</g>
+					<g>
+					</g>
+					<g>
+					</g>
+					<g>
+					</g>
+					<g>
+					</g>
+					<g>
+					</g>
+					<g>
+					</g>
+					<g>
+					</g>
+					<g>
+					</g>
+					<g>
+					</g>
+					<g>
+					</g>
+				</svg>
+		   
+			</a>
+			<a class=contactbtn target="_blank" href="mailto:me@hellodamon.com">
+				<embed src=mailbtnlabel.svg></embed>
+				<svg alt="" class=mailbtn version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+				viewBox="0 0 57 57" style="enable-background:new 0 0 57 57;" xml:space="preserve">
+					<g>
+						<g>
+							<polygon style="fill:#DCD6CD;" points="0,5.5 0,44.5 28,44.5 56,44.5 56,5.5 		"/>
+							<path style="fill:#E8E3D9;" d="M30.965,27.607c-1.637,1.462-4.292,1.462-5.93,0l-2.087-1.843C16.419,31.591,0,44.5,0,44.5h21.607
+								h12.787H56c0,0-16.419-12.909-22.948-18.736L30.965,27.607z"/>
+							<path style="fill:#EFEBDE;" d="M0,5.5l25.035,22.107c1.637,1.462,4.292,1.462,5.93,0L56,5.5H0z"/>
+						</g>
+						<g>
+							<path style="fill:var(--special-cta-backgroundcolor)" d="M45,34.7c0.969-2.183,3.109-4.2,5.684-4.2c3.467,0,5.964,2.821,6.278,6.183
+								c0,0,0.17,0.835-0.203,2.337c-0.508,2.046-1.701,3.864-3.311,5.251L45,51.5l-8.447-7.229c-1.61-1.387-2.803-3.205-3.311-5.251
+								c-0.373-1.502-0.203-2.337-0.203-2.337c0.314-3.362,2.811-6.183,6.278-6.183C41.891,30.5,44.031,32.517,45,34.7z"/>
+						</g>
+					</g>
+					<g>
+					</g>
+					<g>
+					</g>
+					<g>
+					</g>
+					<g>
+					</g>
+					<g>
+					</g>
+					<g>
+					</g>
+					<g>
+					</g>
+					<g>
+					</g>
+					<g>
+					</g>
+					<g>
+					</g>
+					<g>
+					</g>
+					<g>
+					</g>
+					<g>
+					</g>
+					<g>
+					</g>
+					<g>
+					</g>
+				</svg>
+			</a>
+  </div>
+  <div id="testimonialsoverlay">
+	<h2><span>FEED</span><span>BACK</span></h2>
+	<a id=closetestbutton>[close]</a>
+	<div class=slidecontainer>
+		<div class="slide">
+			<p>Damon completed the project quickly with great quality and detail. I will be using him for future projects and I enjoyed working with him.</p>
+			<div class=attribution>- Who We Are Digital</div>
+		</div>
+		<div class=slide>
+			<p>Absolutely outstanding in every facet. Couldn't be happier. Will definitely be using going forward.</p>
+			<div class=attribution>- Andrew Detweiler, Rockville Condos</div>
+		</div>
+		<div class=slide>
+			<p>Great designer! Gave him some ideas and themes to work with and he was able to provide a perfect mock-up. Damon paid attention to detail, worked quickly and efficiently and we will definitely be using him again!</p>
+			<div class=attribution>- Onizuka Studio</div>
+		</div>
+		<div class=slide>
+			<p>Damon was a pleasure to work with and completed multiple compelling graphics projects for us. We will use him again.</p>
+			<div class=attribution>- Erik Newton, BrightEdge</div>
+		</div>
+		<div class=slide>
+			<p>Damon is a real professional who took the project and gave me exactly what I was looking for. Excellent worker.</p>
+			<div class=attribution>- CT Business Solutions</div>
+		</div>
+		<div class=slide>
+			<p>One of the best freelancers I've ever had the joy of working with. Thank you so much for your help!</p>
+			<div class=attribution>- Excel Impact</div>
+		</div>
+		<div class=slide>
+			<p>Damon exceeded my expectations. He impressed me so much with his professionalism, communication, and deliverance of my logo that I couldn't visualize or dream up. He saw my vision and wow did he nail it!!! I'm hiring him to do my website and I can't wait to work with him further. Thank you!!</p>
+			<div class=attribution>- Stacey's Yoga</div>
+		</div>
+		<div class=slide>
+			<p>Damon was fast, efficient, skilled and a pleasure to work with. He helped me out in a pinch, and I couldn't recommend him more.</p>
+			<div class=attribution>- N B Inc.</div>
+		</div>
+		<div class=slide>
+			<p>Damon was very capable and responsible to our needs. He got the work done and helped us dig into BigCommerce features and changes from our old template. Would work with Damon again!</p>
+			<div class=attribution>- Raven and Lily</div>
+		</div>
+		<div class=slide>
+			<p>Another great job. Look forward to working with this designer more.</p>
+			<div class=attribution>- Taylor Made Marketing</div>
+		</div>
+		<div class=slide>
+			<p>Damon was great at communicating, checking in, making sure all of the glitches were fixed, and was thorough in his work. Damon really came through and did an amazing job. He is superior at his craft. He found glitches and wrote code to fix them. Absolute amazing experience. Will hire again for sure.</p>
+			<div class=attribution>- Colleen Stutz, A Little Lady Shop</div>
+		</div>
+
+		</div>
+		<a id=testslidenext>[more]</a>
+	</div>
+	<div id=portfoliooverlay>
+		<a id="closeportoverlay">[close]</a>
+		<h2>Examples of My Work</h2>
+		<p>My work here is a few years out of date. Something about the cobbler's children and their shoes comes to mind. I'll be updating it soon, but until then click 'continue' to view my old stuff or ask me for more recent examples.</p>
+		<a target="_blank" class="specialcta" href="https://nomadicdesigns.net">[continue]</a>
+	</div>
+	<ul id=mobilelinks class=mobilelinks>
+		<li><a id="mobileactivationbutton"><span class=closed>[menu]</span><span class=open>[close]</span></a></li>
+		<li><a id="portoverlaytriggermobile" target="_blank">[work]</a></li>
+		<li><a id="testtriggermobile">
+			<svg version="1.1" id="quote" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve">
+				<g>
+					<path d="M86,54.2c0,8-2.8,14.8-8.2,19.6c-4,3.9-7.6,5.6-15,7.3L56,69.4c6-0.9,9.1-2.2,12.2-4.8c2.8-2.3,3.9-4.8,4.3-10.3H54.8v-31
+						H86V54.2z M44.6,54.2c0,8-2.8,14.8-8,19.6c-4.2,3.9-7.7,5.6-15,7.3l-6.8-11.7c6-0.9,9.1-2.2,12-4.8c2.9-2.3,3.9-4.8,4.3-10.3H13.6
+						v-31h31V54.2z"/>
+				</g>
+			</svg>
+		</a></li>
+		<li><a id=sayhimobile>
+			<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve">
+			<style type="text/css">
+				.st0{fill:#FFFFFF;}
+			</style>
+			<polygon points="13,80 73.6,80 88,92 88,80 88,20 13,20 "/>
+			<g>
+				<circle class="st0" cx="32.3" cy="52" r="5"/>
+				<circle class="st0" cx="49" cy="52" r="5"/>
+				<circle class="st0" cx="65.7" cy="52" r="5"/>
+			</g>
+			</svg>
+		</a></li>
+	</ul>
+	<script type="text/javascript">
+	//open and close the overlays
+		window.addEventListener('DOMContentLoaded', function(){
+			document.getElementById('mobileactivationbutton').addEventListener('click', activatemobilelinks);
+			document.getElementById('testtrigger').addEventListener('click', opentest);
+			document.getElementById('testtriggermobile').addEventListener('click', opentest);
+			document.getElementById('closetestbutton').addEventListener('click', closetest);
+			document.getElementById('sayhi').addEventListener('click', openoverlay);
+			document.getElementById('sayhimobile').addEventListener('click', openoverlay);
+			document.getElementById('closeoverlaybtn').addEventListener('click', closeoverlay);
+			document.getElementById('portoverlaytrigger').addEventListener('click', openportoverlay);
+			document.getElementById('portoverlaytriggermobile').addEventListener('click', openportoverlay);
+			document.getElementById('closeportoverlay').addEventListener('click', closeportoverlay);
+			let overlay = document.getElementById('overlay');
+			let testoverlay = document.getElementById('testimonialsoverlay');
+			let portoverlay = document.getElementById('portfoliooverlay');
+			let mobilelinks = document.getElementById('mobilelinks');
+			function activatemobilelinks() {
+				if(mobilelinks.classList.contains('active')){
+					mobilelinks.classList.remove('active');
+				}
+				else {
+					mobilelinks.classList.add('active');
+				}
+			}
+			function openportoverlay() {
+				portoverlay.classList.add('opened');
+			}
+			function closeportoverlay() {
+				portoverlay.classList.remove('opened');
+			}
+			function opentest() {
+				testoverlay.classList.add('visible');
+			}
+			function closetest() {
+				testoverlay.classList.remove('visible');
+			}
+			function openoverlay() {
+				overlay.classList.add('visible');
+			}
+			function closeoverlay() {
+				overlay.classList.remove('visible');
+			}
+			document.onkeydown = function (e) {
+				if(e.key === "Escape") {
+					if(overlay.classList.contains('visible')){
+						closeoverlay();
+					}
+					else if(testoverlay.classList.contains('visible')){
+						closetest();
+					}
+					else if(portoverlay.classList.contains('opened')){
+						closeportoverlay();
+					}
+				}
+			};	
+		});
+	</script>
+	<script type="text/javascript">
+	//set random testimonial slide on load and advance testimonial slider when called
+		document.getElementById('testslidenext').addEventListener('click', nexttest);
+		let testslides =  document.getElementsByClassName("slide");
+		let currentslide = Math.floor(Math.random() * 10);
+		testslides[currentslide].classList.add('currentslide');
+		function nexttest() {
+			console.log(currentslide);
+			testslides[currentslide].classList.remove('currentslide');
+			currentslide = currentslide + 1;
+			if(testslides[currentslide] == undefined){
+				currentslide = 0;
+				testslides[currentslide].classList.add('currentslide');
+			}
+			else {
+				testslides[currentslide].classList.add('currentslide');
+			}
+		}
+	</script>
+	<script type="text/javascript">
+	//set random testimonial slide on load and advance testimonial slider when called
+		document.getElementById('colorswitch').addEventListener('click', nextcolor);
+		let root = document.documentElement;
+		function nextcolor() {
+			if (root.classList.contains('light')) {
+				root.classList.remove('light');
+			}
+			else {
+				root.classList.add('light');
+			}
+		}
+	</script>
+</body>
+</html>

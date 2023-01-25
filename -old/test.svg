@@ -1,0 +1,24 @@
+<svg preserveAspectRatio="none" viewBox="0 0 1440 678" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="purple-bg" aria-hidden="true">
+  <defs>
+    <linearGradient id="purpleGradient" gradientTransform="matrix(1440 0 0 -677.9998 -741085 433280.8438)" gradientUnits="userSpaceOnUse" x1="515.0464" x2="515.6423" y1="638.5575" y2="638.5575"><stop offset=".04355" stop-color="#530735"></stop><stop offset="1" stop-color="#ef4836"></stop></linearGradient>
+
+    <path id="pShape" d="m0 0h1440v635.9c-160.9-48.6-416.3-44.9-766 11.2-278.7 44.7-503.4 41-674-11.2z"></path>
+
+    <clipPath id="pClip">
+      <path d="m0 0h1440v635.9c-160.9-48.6-416.3-44.9-766 11.2-278.7 44.7-503.4 41-674-11.2z"></path>
+    </clipPath>
+
+    <g id="morph1">
+      <svg viewBox="150 25 1000 610" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><linearGradient id="kx4bsdk5ha" x1="50%" x2="50%" y1="0%" y2="100%"><stop offset="0" stop-color="#fccc73" stop-opacity=".123"></stop><stop offset="1" stop-color="#f4841f" stop-opacity=".105"></stop></linearGradient><path d="m577.051 992.936c148.96 26.148 476.187-315.546 421.374-627.773-54.813-312.227-249.574-128.571-561.865-183.389-312.292-54.817-287.183 320.124-242.634 476.75 44.55 156.625 234.165 308.265 383.125 334.412z" fill="url(#kx4bsdk5ha)" fill-rule="evenodd" transform="matrix(-.70710678 .70710678 -.70710678 -.70710678 1187.352469 375.854025)"><animate dur="30s" repeatCount="indefinite" attributeName="d" values="
+      m577.051 992.936c148.96 26.148 476.187-315.546 421.374-627.773-54.813-312.227-249.574-128.571-561.865-183.389-312.292-54.817-287.183 320.124-242.634 476.75 44.55 156.625 234.165 308.265 383.125 334.412z;M529.19 1132.092c148.96 26.148 493.95-23.884 439.136-336.111-54.813-312.227-131.045-430.648-443.336-485.466-312.292-54.817-379.293 460.443-334.744 617.068 44.55 156.626 189.983 178.362 338.944 204.51z;m577.051 992.936c148.96 26.148 476.187-315.546 421.374-627.773-54.813-312.227-249.574-128.571-561.865-183.389-312.292-54.817-287.183 320.124-242.634 476.75 44.55 156.625 234.165 308.265 383.125 334.412z;" fill="freeze" calcMode="spline" keySplines="0.4 0 0.2 1; 0.4 0 0.2 1"></animate></path></svg>
+    </g>
+
+    <g id="morph2">
+      <svg viewBox="-450 50 1000 650" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><linearGradient id="j2bpze9oma" x1="50%" x2="50%" y1="0%" y2="100%"><stop offset="0%" stop-color="#FBBA42" stop-opacity=".204"></stop><stop offset="100%" stop-color="#F4841F" stop-opacity=".133"></stop></linearGradient><path d="m1610.766 1015.583c160.558 4.173 306.702-156.059 297.29-265.482-9.414-109.424-292.35-45.8-250.142-273.418 42.209-227.619-840.916-111.462-832.18 125.576 3.388 91.935 152.193 58.21 341.11 152.94 188.915 94.73 345.636 257.834 443.922 260.384z" fill="url(#j2bpze9oma)" fill-rule="evenodd" transform="matrix(.90630779 .42261826 -.42261826 .90630779 -487.517439 -812.594137)"><animate dur="30s" repeatCount="indefinite" attributeName="d" values="m1610.766 1015.583c160.558 4.173 306.702-156.059 297.29-265.482-9.414-109.424-292.35-45.8-250.142-273.418 42.209-227.619-840.916-111.462-832.18 125.576 3.388 91.935 152.193 58.21 341.11 152.94 188.915 94.73 345.636 257.834 443.922 260.384z;M1614.174 867.233c160.557 4.173 146.682-167.82 137.269-277.244-9.413-109.423-241.812-118.608-199.604-346.226 42.209-227.618-764.996 115.612-756.26 352.65 3.388 91.935 82.012 182.539 270.929 277.269 188.916 94.73 449.38-9 547.666-6.45z;m1610.766 1015.583c160.558 4.173 306.702-156.059 297.29-265.482-9.414-109.424-292.35-45.8-250.142-273.418 42.209-227.619-840.916-111.462-832.18 125.576 3.388 91.935 152.193 58.21 341.11 152.94 188.915 94.73 345.636 257.834 443.922 260.384z;" fill="freeze" calcMode="spline" keySplines="0.4 0 0.2 1; 0.4 0 0.2 1"></animate></path></svg>
+    </g>
+  </defs>
+
+  <use xlink:href="#pShape" clip-rule="evenodd" fill="url(#purpleGradient)" fill-rule="evenodd"></use>
+  <use clip-path="url(#pClip)" xlink:href="#morph1"></use>
+  <use clip-path="url(#pClip)" xlink:href="#morph2"></use>
+</svg>

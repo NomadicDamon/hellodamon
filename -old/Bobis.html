@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://fonts.googleapis.com/css?family=Oswald|Open+Sans" rel="stylesheet">
+	<style>
+		img {max-width: 100%;}
+		h1,h2,h3,h4,h5{
+			font-family: 'Oswald', sans-serif;
+			margin-top: 0px;
+			margin-bottom: 0px;
+			line-height: 1;
+		}
+		body {
+			font-family: 'Open Sans', sans-serif;
+		}
+		h1 {
+			font-size: 90px;
+		}
+		h2 {
+			font-size: 50px;
+			margin-bottom: 10px;
+		}
+		a {
+			text-decoration: none;
+		    color: #a80505;
+			font-family: 'Fira Sans Condensed', sans-serif;
+		}
+		header {
+			width: 100%;
+		}
+		img.twitter {
+			margin-left: auto;
+		}
+		header img {
+			padding: 10px;
+			align-self: flex-end;
+		}
+		header img{
+			padding: 10px;
+			align-self: flex-end;
+		}
+		.bottom {
+			display: grid;
+		}
+		.snippet, .links {
+			padding: 10px;
+		}
+		.links ul {
+			list-style: none;
+    		padding-left: 0px;
+		}
+		.links a {
+			font-size: 18px;
+		}
+		.grid {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			grid-gap: 10px;
+			min-height: 500px;
+			grid-template-rows: 5fr 5fr 1fr 5fr;
+		}
+		.grid div {
+			background-size: cover;
+			background-position: center center;
+		}
+		.bob {
+			border: 10px solid #fff;
+			border-radius: 100%;
+			margin:0 auto;
+			position: relative;
+			max-width: 40%;
+			grid-area: 2/1/4/5;
+			z-index: 999999;
+		}
+		img.linkedin, img.twitter {
+			width: 48px;
+		}
+		.top-left {
+			background: url(top-left.jpg);
+			grid-area:3/1/5/2;
+		}
+		.top-mid {
+			background: url(top-mid.jpg);
+			grid-area:1/1/2/2;
+		}
+		.right {
+			background: url(right.jpg);
+			grid-area:1/2/4/3;
+		}
+		.bottom-left {
+			background: url(bottom-mid.jpg);
+			grid-area:2/1;
+		}
+		.bottom-mid {
+			grid-area:4/2;
+			background: url(bottom-left.jpg);
+		}
+		@media (min-width: 800px) {
+			.grid {
+				grid-template-columns: 4.5fr 1.4fr 5fr 5fr;
+				grid-template-rows: 1fr 1fr 1fr 1fr;
+				min-height: 45vw;
+			}
+			.top-left {
+				grid-area:1/1/3/2;
+			}
+			.top-mid {
+				grid-area:1/2/3/4;
+			}
+			.right {
+				grid-area:1/4/5/5;
+			}
+			.bottom-left {
+				grid-area:3/1/5/3;
+			}
+			.bottom-mid {
+				grid-area:3/3/5/4;
+			}
+			.bottom {
+				grid-template-columns: 1fr 1fr;
+			}
+			.links {
+				order: 1;
+				margin-left: auto;
+				text-align: right;
+			}
+			.snippet {
+				order: 2;
+			}
+		}
+		@media (min-width: 600px) {
+			header {
+				display: flex;
+				width: 100%;
+			}
+			h1 {
+				font-size: 160px;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class=inner>
+		<header>
+			<h1>Bob Morse</h1>
+			<img class=twitter src=twitter.svg>
+			<img class=linkedin src=linkedin.svg>
+		</header>
+		<div class=grid>
+			<img class="bob" src="bob.png">
+			<div class="top-left"></div>
+			<div class="top-mid"></div>
+			<div class="right"></div>
+			<div class="bottom-left"></div>
+			<div class="bottom-mid"></div>
+
+		</div>
+		<div class=bottom>
+			<div class=snippet>
+				<p>My interests in technology, culture and community have led to involvement in a wide range of endeavors. I write numerous articles on the Internet covering research, e-commerce and cyberculture. I have owned and maintained HumGuide, the popular local online portal since 2001 and served several years on the board of directors for the Redwood Technology Consortium, an organization that helped businesses and individuals grapple with technology in the early days of the Internet.</p>
+
+				<p>Prior to moving into the technology field, I spent 20 years in professional and academic theatre. I've written, produced, directed and performed in everything from Shakespeare to the circus and apply these experiences to my multimedia work. I hold a Master of Fine Arts in Directing.
+						
+				<p>You can follow my personal obsessions on Twitter or on my blog, Talking Tech.</p>
+						
+				<p>Over the years I've also written movie and theater reviews, plays, poetry, and fiction. For four years I wrote a monthly column on death and dying. These articles and other resources on the topic can be found at Speaking of Death.</p>
+						
+				<p>Not ready to forsake life, yet, I'm currently trying to help make my community a better place by volunteering on the Humboldt County Civil Grand Jury.</p>
+			</div>
+			<div class=links>
+				<ul>
+					<li><h2>Morse Media</h2></li>
+					<li><a rel=noopener target=blank href=#>Morse Media itself</a></li>
+					<li><a rel=noopener target=blank href=#>on Twitter</a></li>
+					<li><a rel=noopener target=blank href=#>on Facebook</a></li>
+					<li><a rel=noopener target=blank href=#>on Upwork</a></li>
+				</ul>
+				<ul>
+					<li><h2>Sites I Run</h2></li>
+					<li><a rel=noopener target=blank href=#>Humguide</a></li>
+					<li><a rel=noopener target=blank href=#>Speaking of Death</a></li>
+					<li><a rel=noopener target=blank href=#>Tech Talk</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

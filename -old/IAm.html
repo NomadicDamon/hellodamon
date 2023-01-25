@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+		<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Damon Hart - Front End Web Developer</title>
+	<meta name="description" content="I am a front end web developer living and working in Portland, Oregon.">
+	<link href="https://fonts.googleapis.com/css?family=Fira+Sans+Condensed|Major+Mono+Display|Thasadith" rel="stylesheet">
+	<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+	<link rel="manifest" href="site.webmanifest">
+	<link rel="mask-icon" href="safari-pinned-tab.svg" color="#5bbad5">
+	<meta name="msapplication-TileColor" content="#da532c">
+	<meta name="theme-color" content="#ffffff">	
+	<style>
+		img {max-width: 100%;}
+		h1{
+			font-family: 'Major Mono Display', monospace;
+			margin-top: 0px;
+			font-size: 50px;
+		}
+		a {
+			text-decoration: none;
+		    color: #CD0BD0;
+			font-family: 'Fira Sans Condensed', sans-serif;
+		}
+		.a-inline-c a {
+			position: relative;
+    		display: inline-block;
+			transition: transform 0.3s;
+			transform-origin: 50% 0;
+			transform-style: preserve-3d;
+			padding: 0 2px;
+		}
+		.a-inline-c {
+			display: inline-block;
+			overflow: hidden;
+			margin-bottom: -5px;
+		}
+		.a-inline-c a:focus,
+		.a-inline-c a:hover {
+			transform: translateY(-100%);
+		}
+		.a-inline-c a:focus::before,
+		.a-inline-c a:hover::before {
+			background: #CD0BD0;
+			color: #fff;
+		}
+		.a-inline-c a:before {
+			position: absolute;
+			top: 100%;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			content: attr(title);
+			transform: translate3d(0,0,0);
+			padding: 0 2px;
+			text-align: center;
+		}
+
+		ul {
+			margin-left: -30px;
+			padding-top: 20px;
+			list-style: none;
+		}
+		body .inner {
+			max-width: 1000px;
+			margin: 0 auto;
+			font-family: 'Thasadith', sans-serif;
+			font-size: 20px;
+			font-weight: bold;
+			PADDING: 20PX;
+			align-items: center;
+		}
+		body {
+			justify-content: center;
+			min-height: 100vh;
+			display: flex;
+			flex-direction: column;
+			background: url(back.svg) #eee 11% 0;
+			background-size: cover;
+			padding-left: 17%;
+			margin: 0px;
+		}
+		li a {
+			background: #CD0BD0;
+		    color: #fff;
+		    padding: 4px 6px;
+		    transform: rotate(-10deg);
+		    display: inline-block;
+		    margin: 6px 0 4px 0px;
+		}
+		
+		li a.last {
+			margin-top: 8px;
+		}
+		li a:focus,
+		li a:hover {
+			background: #040404;
+			transition: .5s;
+		}
+		li a svg.fa-smile {
+			max-width: 100%;
+			width: 15px;
+		}
+		li a:focus svg.fa-smile,
+		li a:hover svg.fa-smile {
+			transform: rotateZ(180deg);
+			transition: .5s;
+		}
+		.bridge {
+			width: 560px;
+			order: 1;
+		}
+		.links ul:before {
+			content: " ";
+			display: block;
+			background: #000;
+			height: 110px;
+			width: 123px;
+			margin-bottom: -122px;
+			transform: rotateZ(20deg);
+		}
+		.links ul {
+			order: 2;
+		}
+		.links {
+			display: flex;
+			flex-direction: column;
+        }
+        .snippet {
+            padding: 60px 0 0;
+        }
+		.footback {
+			background: url(footer.svg) no-repeat;
+            position: sticky;
+            top: 100%;
+			margin-left: -21%;
+    		width: 121%;
+            content: " ";
+            display: block;
+            height: 150px;
+		}
+		.dots {
+			margin-left: auto;
+			margin-bottom: -150px;
+			width: 230px;
+			z-index: 1;
+		}
+		@media (max-width: 600px) {
+			body {
+				background-position: 12% 0;
+			}
+			h1{
+				font-size: 40px;
+			}
+
+		}
+		@media (max-width: 1000px) {
+			body .inner h1 {
+				margin-top: 140px;
+			}
+		}
+		@media (min-width: 1000px) {
+			body .inner {
+				display: grid;
+				grid-template-columns: 2fr 1fr;
+				grid-gap: 60px;
+			}
+			.links {
+				display: flex;
+				flex-direction: column;
+			}
+			.bridge {
+				order: 2;
+				max-width: unset;
+				width: 400px;
+			}
+			.links ul {
+				order: 1;
+			}
+			.dots {
+				float: right;
+				position: fixed;
+				margin-bottom: 0px;
+				right: 0;
+				bottom: 0;
+			}
+			body {
+				padding-left: 14%;
+			}
+		}
+		@media (min-width: 1200px) {
+			.bridge {
+					width: 560px;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class=inner>
+		<div class=snippet>
+			<h1>Damon Hart</h1>
+			<p>I am a front end web developer living and working in Portland, Oregon. I specialize in responsive web design, illustration, product photography, and more. I work with Wordpress, Drupal, Shopify, I'm a BigCommerce design partner, et al.</p>
+			<p>When not working you can find me watching <span class=a-inline-c><a rel=noopener target=blank title="Don Hertzfeldt" href="https://en.wikipedia.org/wiki/World_of_Tomorrow_(film)">something I love</a></span>, enjoying <span class=a-inline-c><a title="Bluefin" rel=noopener target=blank href="http://bluefin-sushi-bar-portland.sites.tablehero.com/">good grub</a></span>, at <span class=a-inline-c> <a title="The Tannery" rel=noopener target=blank href="http://www.tannerybarpdx.com/">the tavern with friends</a></span>, reading <span class=a-inline-c><a rel=noopener target=blank title="The Void Trilogy" href="https://en.wikipedia.org/wiki/Void_Trilogy">a science fiction novel</a></span>, fly-fishing, or <span class=a-inline-c><a title="Scooping Cat Litter" rel=noopener target=blank href=https://www.google.com/search?q=cat+litter+scoops>serving my feline overlord</a></span>.</p>
+			<p>Have something to say? <span class=a-inline-c><a rel=noopener target=blank title="Calendly" href="https://calendly.com/nomadicdamon/">Let's Chat!</a></span></p>
+		</div>
+		<div class=links>
+			<ul>
+				<li><span class=a-list-c><a rel=noopener target=blank href="https://nomadicdesigns.net">As a Freelancer</a></span></li>
+				<li><a rel=noopener target=blank href="https://www.facebook.com/Nomadic-Designs-134561723262489/">On Social Media</a></li>
+				<li><a rel=noopener target=blank href="http://wetspots.org" class="last">Just for Fun <svg aria-hidden="true" data-prefix="fas" data-icon="smile" focusable=”false” class="svg-inline--fa fa-smile fa-w-16" role="img" xmlns="https://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M248 8C111 8 0 119 0 256s111 248 248 248 248-111 248-248S385 8 248 8zm80 168c17.7 0 32 14.3 32 32s-14.3 32-32 32-32-14.3-32-32 14.3-32 32-32zm-160 0c17.7 0 32 14.3 32 32s-14.3 32-32 32-32-14.3-32-32 14.3-32 32-32zm194.8 170.2C334.3 380.4 292.5 400 248 400s-86.3-19.6-114.8-53.8c-13.6-16.3 11-36.7 24.6-20.5 22.4 26.9 55.2 42.2 90.2 42.2s67.8-15.4 90.2-42.2c13.4-16.2 38.1 4.2 24.6 20.5z"></path></svg> </a></li>
+			</ul>
+			<img alt="" class=bridge src="bridge.svg">
+		</div>
+	</div>
+	<img class=dots alt="" src=dots.svg>
+	<div class=footback></div>
+</body>
+<!--icons created by font awesome-->
+</html>

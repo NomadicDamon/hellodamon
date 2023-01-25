@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <meta charset="UTF-8">
+	<link href="https://fonts.googleapis.com/css?family=Dosis|Staatliches" rel="stylesheet">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Damon Hart - Front End Web Developer</title>
+	<meta property="og:title" content="Damon Hart" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://hellodamon.com" />
+	<meta property="og:image" content="https://hellodamon.com/soc-preview.png" />
+	<meta property="og:description" content="I am a front end web developer living and working in Portland, Oregon.">
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:creator" content="@damonbhart">
+	<meta name="twitter:title" content="Damon Hart">
+	<meta name="twitter:description" content="I am a front end web developer living and working in Portland, Oregon.">
+	<meta name="twitter:image" content="https://hellodamon.com/soc-preview2.png">
+	<meta name="description" content="I am a front end web developer living and working in Portland, Oregon.">
+	<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+	<link rel="mask-icon" href="safari-pinned-tab.svg" color="#5bbad5">
+	<meta name="msapplication-TileColor" content="#da532c">
+	<meta name="theme-color" content="#ffffff">
+    <style>
+        :root {
+            --header-font:Staatliches, cursive;
+            --body-font: Dosis, sans-serif;
+            --body-background-color: #010101;
+            --header-color: #fefefe;
+            --header-fl-color:#777;
+            --sayhellobtn-color: #888;
+            --sayhellobtn-bg-color: #010101;
+        }
+        body {
+            font-family: var(--body-font);
+            font-size: clamp(18px,2vw,26px);
+            background: var(--body-background-color);
+            padding: 4vh 0;
+		}
+		body.blackandwhite {
+			--root-color-one: #98938e;
+			--root-color-two: #404040;
+			--root-color-three: #2d2d2d;
+			--root-color-four: #fefefe;
+		}
+		body.glowstick {
+			--root-color-one: #08eac1;
+			--root-color-two: #ea08d9;
+			--root-color-three: #010101;
+			--root-color-four: #fff;
+		}
+		body.discovery {
+			--root-color-one: #B53918;
+			--root-color-two: #155b6d;
+			--root-color-three: #fff2de;
+			--root-color-four: #dacfb9;
+		}
+        img,
+        svg {
+			max-width: 100%
+		}
+        h1 {
+            font-size: clamp(84px,30vw,390px);
+            font-family: var(--header-font);
+            margin: 0;
+            writing-mode: vertical-lr;
+            transform: rotate(180deg) translate(20px,0);
+            float: left;
+            color:var(--header-color);
+        }
+        h1 span span {
+            color:var(--header-fl-color);
+        }
+        main {
+            background: #fff;
+            margin-left: 30vw;
+            padding: 10px 20px;
+        }
+        ul {
+            list-style:none;
+            padding:0;
+        }
+        header nav {
+            position: fixed;
+            right: 20px;
+            bottom: 10px;
+        }
+        #sayhellobtn {
+            display: flex;
+            align-items: center;
+            font-size: clamp(24px,2.5vw,28px);
+            width: 120px;
+            line-height: 1.0;
+            text-decoration: none;
+            background:var(--sayhellobtn-bg-color);
+            color:var(--sayhellobtn-color);
+            padding: 0 0 4px;
+            transition: .5s;
+        }
+        #sayhellobtn.offstage {
+            transition: .5s;
+            transform: translate(0, 140%);
+        }
+        #sayhellobtn svg {
+            fill: var(--sayhellobtn-color);
+        }
+        header {
+            position: sticky;
+            top: 0;
+        }
+      
+    </style>
+</head>
+<body>
+    <header>
+        <h1><span class="first"><span>D</span>AMON</span><span class="last"><span>H</span>ART</span></h1>
+        <nav>
+            <ul>
+                <li>
+                    <a id="sayhellobtn" href=#>
+                        <svg width="60" height="50" version="1.1" id="speachbubble" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve">
+                            <style type="text/css">
+                                .st0 {
+                                    fill: #FFFFFF;
+                                }
+                            </style>
+                            <polygon points="13,80 73.6,80 88,92 88,80 88,20 13,20 "></polygon>
+                            <g>
+                                <circle class="st0" cx="32.3" cy="52" r="5"></circle>
+                                <circle class="st0" cx="49" cy="52" r="5"></circle>
+                                <circle class="st0" cx="65.7" cy="52" r="5"></circle>
+                            </g>
+                        </svg>
+                        say hello.
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <p>I am a web designer and front-end developer in Portland, Oregon. I'm familiar with a variety of CMS (Wordpress, Drupal, Magento, et al.). I'm a Shopify partner and a BigCommerce design partner. I am happy to work outside of any framework or dependencies. Web Accessibility is a particular passion of mine. I also work in print, can assist with branding, product photography, and more.</p>
+        <p>When not working you can find me exploring Sellwood in search of cats and/or goats to pet, kayaking, fishing, or serving my feline overlord.</p>
+        <nav>
+            <ul>
+                <li><a href=#>What They Say About Me</a></li>
+                <li><a href=#>Some Of My Work</a></li>
+            </ul>
+        </nav>
+    </main>
+<script type="text/javascript">
+    window.onscroll = function(e) {
+    // print "false" if direction is down and "true" if up
+    if(this.oldScroll > this.scrollY) {
+        sayhellobtn.classList.remove('offstage');
+    } else {
+        sayhellobtn.classList.add('offstage');
+    }
+    this.oldScroll = this.scrollY;
+    }
+</script>
+</body>
+</html>

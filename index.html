@@ -1,0 +1,1573 @@
+<!DOCTYPE html>
+<html lang=en>
+
+<head>
+	<meta charset="UTF-8">
+	<link href="https://fonts.googleapis.com/css?family=Dosis|Staatliches&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://use.typekit.net/jbm7kig.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Damon Hart - Front End Web Developer</title>
+
+	<meta property="og:title" content="Damon Hart" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://hellodamon.com" />
+	<meta property="og:image" content="https://hellodamon.com/soc-preview.png" />
+	<meta property="og:description" content="I am a front end web developer living and working in Portland, Oregon.">
+
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:creator" content="@damonbhart">
+	<meta name="twitter:title" content="Damon Hart">
+	<meta name="twitter:description" content="I am a front end web developer living and working in Portland, Oregon.">
+	<meta name="twitter:image" content="https://hellodamon.com/soc-preview2.png">
+
+	<meta name="description" content="I am a front end web developer living and working in Portland, Oregon.">
+	<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+	<link rel="mask-icon" href="safari-pinned-tab.svg" color="#5bbad5">
+	<meta name="msapplication-TileColor" content="#da532c">
+	<meta name="theme-color" content="#ffffff">
+	<script>
+		window.addEventListener('DOMContentLoaded', function () {
+			let body = document.querySelectorAll('body');
+			let colorSchemePref = JSON.parse(localStorage.getItem('colorSchemePref'));
+			if (colorSchemePref !== null) {
+				document.body.className = "";
+				document.body.classList.add(colorSchemePref);
+			}
+			else {
+				document.body.className = "";
+				document.body.classList.add(colorScheme[getRandomInt(colorScheme.length)]);
+			}
+		});
+	</script>
+	<style>
+		#quote {
+    fill: #fff;
+    max-width: 30px;
+}
+svg {
+    width: 100%;
+}
+:root {
+    --main-cta-backgroundcolor: #b53918;
+    --main-cta-color: #155b6d;
+    --special-cta-backgroundcolor: var(--main-cta-color);
+    --page-background-color: #fff2de;
+    --special-cta-color: #dacfb9;
+    --main-cta-hover-color: var(--special-cta-color);
+    --inner-background-color: var(--special-cta-color);
+    --page-title-color: var(--special-cta-color);
+    --black: #010101;
+    --white: #fefefe;
+    --transition-timing: .5s;
+}
+a {
+    cursor: pointer;
+}
+a#closebiooverlay,
+a#closeportoverlay,
+a#closetestbutton {
+    color: var(--black);
+    z-index: 999;
+}
+a#closetestbutton {
+    color: var(--white);
+}
+a#testslidenext {
+    z-index: 999;
+    background-color: var(--special-cta-backgroundcolor);
+    color: var(--special-cta-color);
+}
+.slide {
+    opacity: 0;
+    transition: var(--transition-timing);
+    transform: translatey(-20vh);
+    grid-area: 1/1/2/2;
+    margin: 0 auto;
+}
+.slide.currentslide {
+    opacity: 1;
+    transform: none;
+}
+.slidecontainer {
+    display: grid;
+    margin-bottom: 20px;
+    align-items: center;
+}
+#testimonialsoverlay h2 {
+    position: fixed;
+    top: -1vw;
+    left: -31vw;
+    writing-mode: tb-rl;
+    font-size: 27vw;
+    height: 200vh;
+    color: #eee;
+    transition: var(--transition-timing);
+}
+#testimonialsoverlay h2 span:nth-child(1) {
+    z-index: 1;
+    margin-left: 0;
+    margin-top: -100vh;
+}
+#testimonialsoverlay h2 span:nth-child(2) {
+    position: fixed;
+    right: -7vw;
+    writing-mode: tb-rl;
+    height: 200vh;
+    transition: var(--transition-timing);
+    color: #ddd;
+    z-index: 0;
+    top: -24vw;
+    margin-top: 100vh;
+}
+.overlay,
+#portfoliooverlay,
+#testimonialsoverlay {
+    background: #fff;
+    min-height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: -1;
+    transition: var(--transition-timing);
+    opacity: 0;
+}
+#testimonialsoverlay.visible h2 span:nth-child(1) {
+    margin-top: 0;
+    transition: var(--transition-timing);
+}
+#testimonialsoverlay.visible h2 span:nth-child(2) {
+    margin-top: 0;
+    transition: var(--transition-timing);
+}
+#testimonialsoverlay p {
+    font-size: 24px;
+}
+#testimonialsoverlay .slide {
+    max-width: 600px;
+    z-index: 9;
+    width: 80%;
+    font-size: 18px;
+}
+#testimonialsoverlay .attribution {
+    font-size: 22px;
+    font-family: Staatliches, cursive;
+}
+#portfoliooverlay.visible {
+    color: #fff;
+    z-index: 999;
+    opacity: 1;
+    background: rgba(0, 0, 0, 0.9);
+}
+#portfoliooverlay h2,
+#portfoliooverlay p {
+    color: #fff;
+    max-width: 600px;
+    width: 90%;
+    justify-content: center;
+}
+#portfoliooverlay p {
+    font-size: 18px;
+}
+#portfoliooverlay a {
+    margin-top: 20px;
+}
+.specialcta {
+    background: var(--special-cta-backgroundcolor);
+    color: var(--special-cta-color);
+}
+body {
+    margin: 0 !important;
+    display: grid;
+    font-family: Dosis, sans-serif;
+    background-color: var(--inner-background-color);
+}
+.overlay,
+.pagecontainer {
+    grid-area: 1/1/2/2;
+}
+.overlay {
+    background-color: rgba(0, 0, 0, 0.9);
+    min-height: 100vh;
+    height: 100%;
+    width: 100vw;
+    z-index: 2;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    transition: 0.4s;
+    opacity: 0;
+    z-index: -1;
+    position: fixed;
+}
+.overlay.visible {
+    opacity: 1 !important;
+    z-index: 999 !important;
+}
+.overlay a {
+    margin: 40px;
+}
+a {
+    color: #fff;
+    background: var(--main-cta-backgroundcolor);
+    color: var(--main-cta-color);
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 2px;
+    padding: 0 4px;
+}
+.inner {
+    background: var(--inner-background-color);
+}
+.outer {
+    background: var(--page-background-color);
+    max-width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.snippet {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    max-width: 794px;
+    margin: 0 auto;
+    grid-gap: 20px;
+    font-size: 18px;
+    transition: 0s;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    padding: 0 20px;
+}
+.snippet.animated {
+    transform: initial;
+    opacity: 1;
+}
+#closeoverlaybtn {
+    z-index: 99999;
+    position: fixed;
+    right: 40px;
+    top: 40px;
+    margin: 0;
+    height: auto;
+    width: auto;
+    border-radius: 0;
+    color: var(--black);
+}
+.bio {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    line-height: 1.4;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale;
+}
+.links,
+.links2 {
+    grid-column-start: 2;
+}
+h1 {
+    transform: rotate(180deg);
+    font-size: 154px;
+    font-family: Staatliches, cursive;
+    line-height: 130px;
+    grid-area: 1/1/4/2;
+    writing-mode: tb-rl;
+    writing-mode: sideways-rl;
+    margin: -20px;
+    background: var(--page-background-color);
+    padding: 20px 24px 20px 0;
+    margin-right: 0;
+    text-align: right;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    cursor: default;
+}
+h1 > span {
+    color: var(--page-title-color);
+}
+span.a-inline-c:after {
+    background: var(--main-cta-backgroundcolor);
+    content: " ";
+    display: block;
+    height: 5px;
+    width: 100%;
+    overflow: hidden;
+    transform: translateX(101%);
+}
+.a-inline-c a:focus,
+.a-inline-c a:hover,
+.a-list-c a:focus,
+.a-list-c a:hover {
+    background: var(--main-cta-backgroundcolor);
+    color: var(--main-cta-hover-color);
+    transition: 0.5s;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+a#sayhi:focus svg,
+a#sayhi:hover svg {
+    fill: var(--main-cta-backgroundcolor);
+}
+span.a-inline-c:focus::after,
+span.a-inline-c:hover::after {
+    transform: none;
+    transition: 0.5s;
+}
+span.a-inline-c {
+    display: inline-block;
+    overflow: hidden;
+    margin-bottom: -10px;
+}
+h2 {
+    font-family: Staatliches, cursive;
+    color: #000;
+    display: flex;
+    letter-spacing: 1.1px;
+    font-size: 28px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.links2 li {
+    display: inline;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.links2 ul {
+    padding-left: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.links li a {
+    text-decoration: none;
+    background: var(--special-cta-backgroundcolor);
+    color: var(--special-cta-color);
+    padding: 2px 5px;
+    line-height: 1.8;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    margin-right: auto;
+}
+.links ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 7px;
+}
+.rightlink svg {
+    color: #000;
+    width: 40px;
+    margin-right: 10px;
+    margin-top: 2px;
+}
+.rightlink a {
+    background: 0 0 !important;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+a#sayhi {
+    border-radius: 50%;
+    font-size: 22px;
+    background: 0 0;
+    color: var(--main-cta-color);
+    border: 0;
+    display: flex;
+    align-items: center;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    margin-left: -27px;
+    cursor: pointer;
+}
+a#sayhi svg {
+    fill: var(--main-cta-color);
+}
+a#sayhi img {
+    width: 30px;
+    height: 30px;
+    margin-right: 5px;
+    z-index: 2;
+}
+a#sayhi.visible {
+    transform: translateX(0);
+    opacity: 1;
+}
+h1 span span {
+    color: var(--main-cta-backgroundcolor);
+}
+.rightlink a {
+    color: var(--main-cta-backgroundcolor);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.links a {
+    display: flex;
+    margin-right: -100vw;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+a.contactbtn {
+    transform: translateX(-100px);
+    opacity: 0;
+    transition: 0.5s;
+    background: 0 0;
+    display: grid;
+    width: 220px;
+    height: 220px;
+}
+a.contactbtn embed {
+    grid-area: 1/1;
+    opacity: 0;
+    transition: 0.75s;
+    font-size: 12px;
+    transform: rotate(45deg);
+}
+#overlay.visible a.contactbtn embed {
+    opacity: 1;
+    transform: rotate(0);
+}
+a.contactbtn svg {
+    grid-area: 1/1;
+    width: 100px;
+    align-self: center;
+    justify-self: center;
+}
+#overlay.visible a.contactbtn {
+    transform: translateX(0);
+    opacity: 1;
+}
+svg.phonebtn {
+    transform: translate(7px, 0);
+}
+svg.mailbtn {
+    transform: translate(2px, 7px);
+}
+.delayedfallin {
+    opacity: 1;
+    animation-name: delayedfallin;
+    animation-duration: 1s;
+}
+.fallin {
+    opacity: 1;
+    animation-name: fallin;
+    animation-duration: 1s;
+}
+.bounced {
+    animation-name: bounced;
+    animation-duration: 1s;
+}
+svg#Layer_1 {
+    fill: var(--main-cta-backgroundcolor);
+    max-width: 40px;
+    animation: shake infinite 3s;
+}
+ul.mobilelinks a:hover svg#Layer_1 {
+    fill: #fff;
+}
+svg#Layer_1 circle {
+    fill: #010101;
+}
+svg#Layer_1 circle:nth-child(1) {
+    animation: pulsedotone infinite 3s;
+}
+svg#Layer_1 circle:nth-child(2) {
+    animation: pulsedottwo infinite 3s;
+}
+svg#Layer_1 circle:nth-child(3) {
+    animation: pulsedotthree infinite 3s;
+}
+
+h1 span.first {
+    animation: entryspanfirst 1.2s forwards;
+    opacity: 0;
+    display: inline-block;
+    animation-delay: 0.5s;
+}
+h1 span.last {
+    animation: entryspanlast 1.2s forwards;
+    opacity: 0;
+    display: inline-block;
+    animation-delay: 0.5s;
+}
+h1 span span {
+    animation: entryspan 1.2s forwards;
+    opacity: 0;
+}
+.bio,
+.links,
+.links2 {
+    animation: entryspan 1.2s forwards;
+}
+.links {
+    z-index: 9;
+}
+body.discovery {
+    --main-cta-backgroundcolor: #b53918;
+    --main-cta-color: #155b6d;
+    --page-background-color: #fff2de;
+    --special-cta-backgroundcolor: #155b6d;
+    --special-cta-color: #dacfb9;
+    --main-cta-hover-color: #dacfb9;
+    --inner-background-color: #dacfb9;
+    --page-title-color: #dacfb9;
+}
+body.glowstick {
+    --main-cta-backgroundcolor: #08eac1;
+    --main-cta-color: #ea08d9;
+    --page-background-color: #010101;
+    --special-cta-backgroundcolor: #ea08d9;
+    --special-cta-color: #fefefe;
+    --main-cta-hover-color: #fefefe;
+    --inner-background-color: #fefefe;
+    --page-title-color: #fefefe;
+}
+body.blackandwhite {
+    --main-cta-backgroundcolor: #98938e;
+    --main-cta-color: #010101;
+    --page-background-color: #2d2d2d;
+    --special-cta-backgroundcolor: #010101;
+    --special-cta-color: #fefefe;
+    --main-cta-hover-color: #fefefe;
+    --inner-background-color: #fefefe;
+    --page-title-color: #fefefe;
+}
+body.mcm {
+    --main-cta-backgroundcolor: #de0d48;
+    --main-cta-color: #de0d48;
+    --page-background-color: #2d2d2d;
+    --special-cta-backgroundcolor: #de0d48;
+    --special-cta-color: #fefefe;
+    --main-cta-hover-color: #fefefe;
+    --inner-background-color: #fefefe;
+    --page-title-color: #de0d48;
+}
+.mcm .inner {
+    background: var(--main-cta-color) url(img/mcm.svg) right center;
+}
+.mcm .snippet p {
+    color: #fff;
+}
+.mcm h1 {
+    -webkit-text-stroke: 1px #ea1212;
+    font-family: essonnes-headline, serif;
+    font-weight: 700;
+    font-size: 90.5px;
+    background: linear-gradient(30deg, #f7976d, #f7976d 40%, #f6945c 60%, #f6945c);
+}
+.mcm h1 span span {
+    color: var(--main-cta-color);
+}
+.mcm .outer {
+    background-image: linear-gradient(180deg, #f7976d, #f7976d 40%, #f6945c 60%, #f6945c);
+}
+.mcm .snippet {
+    background: var(--main-cta-color) !important;
+    transition: background 0s;
+}
+.mcm a#sayhi {
+    color: var(--white);
+}
+.mcm .links li a {
+    color: #fff;
+    background: var(--main-cta-color);
+    border: 1px solid #fff;
+}
+.mcm a#sayhi svg {
+    fill: #fff;
+}
+.mcm a#sayhi svg .st0 {
+    fill: var(--main-cta-color);
+}
+.mcm .links li a {
+    border: 1px solid #de0d48;
+    width: fit-content;
+    border: 1px solid #fff;
+}
+.mcm .links li a:hover {
+    background: #fa641d;
+    border: 1px solid #fa641d;
+    border-radius: 0;
+}
+.mcm a#sayhi:hover svg {
+    fill: #fa641d;
+    transition: 0.25s;
+}
+.mcm a#sayhi:hover svg .st0 {
+    fill: #fff;
+}
+body.mcmtwo {
+    --main-cta-backgroundcolor: #ee4823;
+    --main-cta-color: #ee4823;
+    --page-background-color: #2d2d2d;
+    --special-cta-backgroundcolor: #1d2535;
+    --special-cta-color: #fefefe;
+    --main-cta-hover-color: #fefefe;
+    --inner-background-color: #fefefe;
+    --page-title-color: #ee4823;
+}
+.mcmtwo .inner {
+    background: #1d2535 url(img/mcm2.svg) center center;
+}
+.mcmtwo .snippet p {
+    color: #fff;
+}
+.mcmtwo h1 {
+    font-family: swear-display, serif;
+    font-weight: 800;
+    font-style: italic;
+    font-size: 110px;
+    color: var(--page-title-color);
+    background: #ebd9bc;
+    line-height: 1;
+}
+.mcmtwo h1 span span {
+    color: var(--page-title-color);
+}
+.mcmtwo .outer {
+    background: #ebd9bc;
+}
+.mcmtwo .snippet {
+    background: var(--special-cta-backgroundcolor);
+    
+}
+.mcmtwo a#sayhi {
+    color: var(--white);
+}
+.mcmtwo .links li a {
+    color: #fff;
+    background: var(--special-cta-backgroundcolor);
+    border: 1px solid #fff;
+}
+.mcmtwo a#sayhi svg {
+    fill: #fff;
+}
+.mcmtwo a#sayhi svg .st0 {
+    fill: #1d2535;
+}
+.mcmtwo .links li a {
+    border: 1px solid var(--main-cta-color);
+    width: fit-content;
+    border: 1px solid #fff;
+}
+.mcmtwo .links li a:hover {
+    background: var(--main-cta-color);
+    border: 1px solid var(--main-cta-color);
+    border-radius: 0;
+}
+.mcmtwo a#sayhi:hover svg {
+    fill: var(--main-cta-color);
+    transition: 0.25s;
+}
+.mcmtwo a#sayhi:hover svg .st0 {
+    fill: #fff;
+}
+.colorswitcher {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 9;
+}
+.colorswitcher a {
+    width: 30px;
+    height: 30px;
+    overflow: hidden;
+    border-radius: 50%;
+    padding: 0;
+    box-shadow: 2px 2px 3px rgb(0 0 0 / 22%);
+}
+.colorswitcher a:hover {
+    box-shadow: none;
+}
+#setGlowstickBtn {
+    background-image: linear-gradient(45deg, #010101 50%, #08eac1 50%) !important;
+}
+#setBlackAndWhiteBtn {
+    background-image: linear-gradient(45deg, #fff 50%, #202020 50%) !important;
+}
+#setDiscoveryBtn {
+    background-image: linear-gradient(45deg, #155b6d 50%, #b53918 50%) !important;
+}
+#setMCMBtn {
+    background-image: linear-gradient(45deg, #ff7200 50%, #ec0e5c 50%) !important;
+}
+#setMCMBtn2 {
+    background-image: linear-gradient(45deg, #ee4823 50%, #1d2535 50%) !important;
+}
+#biooverlay {
+    background: rgba(255,255,255,1);
+}
+#biooverlay .content {
+    width: 90%;
+    max-width: 600px;
+    text-align: left;
+    margin: 0 auto auto !important;
+    font-size: 18px;
+}
+.overlay-sb {
+    width: 100%;
+    height: 100%;
+    overflow: scroll;
+    padding: 20px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#closebiooverlay {
+    margin-top: auto;
+}
+.blackandwhite svg#Layer_1 circle {
+    fill: #fff;
+}
+@keyframes entry {
+    from {
+        color: transparent;
+        padding: 20px 120vh 20px 120vh;
+        margin-left: -120vh;
+    }
+    80% {
+        color: transparent;
+    }
+    to {
+        padding: 20px 24px 20px 0;
+        margin-left: -20px;
+        color: var(--main-cta-color: );
+    }
+}
+@keyframes entryspanfirst {
+    20% {
+        opacity: 0;
+        transform: translate(0, 20%);
+    }
+    to {
+        opacity: 1;
+        transform: translate(0, 0);
+    }
+}
+@keyframes entryspanlast {
+    20% {
+        opacity: 0;
+        transform: translate(0, -20%);
+    }
+    to {
+        opacity: 1;
+        transform: translate(0, 0);
+    }
+}
+@keyframes entryspan {
+    from {
+        opacity: 0;
+    }
+    80% {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+@keyframes pulsedotone {
+    from {
+        opacity: 1;
+    }
+    10% {
+        opacity: 0;
+    }
+    20% {
+        opacity: 1;
+    }
+    to {
+        opacity: 1;
+    }
+}
+@keyframes pulsedottwo {
+    from {
+        opacity: 1;
+    }
+    10% {
+        opacity: 1;
+    }
+    20% {
+        opacity: 0;
+    }
+    30% {
+        opacity: 1;
+    }
+    to {
+        opacity: 1;
+    }
+}
+@keyframes pulsedotthree {
+    from {
+        opacity: 1;
+    }
+    20% {
+        opacity: 1;
+    }
+    30% {
+        opacity: 0;
+    }
+    40% {
+        opacity: 1;
+    }
+    to {
+        opacity: 1;
+    }
+}
+@keyframes shake {
+    from {
+        transform: rotate(0);
+    }
+    10% {
+        transform: rotate(-5deg);
+    }
+    20% {
+        transform: rotate(5deg);
+    }
+    30% {
+        transform: rotate(-5deg);
+    }
+    40% {
+        transform: rotate(0);
+    }
+    to {
+        transform: rotate(0);
+    }
+}
+@keyframes flyoutright {
+    from {
+        opacity: 0;
+        transform: translateX(60px) scale(0);
+    }
+    25% {
+        opacity: 1;
+    }
+    40% {
+        opacity: 0;
+        transform: translateX(-20px) scale(1.2);
+    }
+    40.01% {
+        opacity: 0;
+        transform: translateX(70px) scale(0);
+    }
+    75% {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+        transform: translateX(-40px) scale(1.2);
+    }
+}
+@keyframes flyoutleft {
+    from {
+        opacity: 0;
+        transform: translateX(-60px) scale(0);
+    }
+    25% {
+        opacity: 1;
+    }
+    40% {
+        opacity: 0;
+        transform: translateX(20px) scale(1.2);
+    }
+    40.01% {
+        opacity: 0;
+        transform: translateX(-70px) scale(0);
+    }
+    75% {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+        transform: translateX(40px) scale(1.2);
+    }
+}
+@keyframes bounced {
+    from {
+        opacity: 1;
+        margin-left: 0;
+    }
+    30% {
+        opacity: 1;
+        margin-left: 0;
+    }
+    40% {
+        opacity: 1;
+        margin-left: 0;
+    }
+    50% {
+        opacity: 1;
+        margin-left: 20px;
+    }
+    60% {
+        opacity: 1;
+        margin-left: 00px;
+    }
+    70% {
+        opacity: 1;
+        margin-left: 20px;
+    }
+    to {
+        opacity: 1;
+        margin-left: 00%;
+    }
+}
+@keyframes fallin {
+    from {
+        opacity: 1;
+        margin-left: 10%;
+    }
+    to {
+        opacity: 1;
+        margin-left: 00%;
+    }
+}
+@keyframes delayedfallin {
+    from {
+        opacity: 1;
+        margin-left: 10%;
+    }
+    25% {
+        opacity: 1;
+        margin-left: 10%;
+    }
+    to {
+        opacity: 1;
+        margin-left: 00%;
+    }
+}
+@keyframes growout {
+    from {
+        opacity: 0;
+        transform: scale(0.2);
+    }
+    20% {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+        transform: scale(1);
+    }
+}
+@media (max-width: 400px) {
+    h1 {
+        font-size: 124px;
+        line-height: 90px;
+        margin: -10px;
+    }
+}
+@media (max-width: 1079.99px) {
+    a#sayhi {
+        transform: rotate(-90deg) translate(76px, 90px);
+        width: 230px;
+        position: absolute;
+        right: 5px;
+    }
+}
+@media (max-width: 600px) {
+    .mcm h1:before,
+    .mcmtwo h1:before {
+        background: var(--special-cta-backgroundcolor) url(https://hellodamon.com/img/mcm.svg) 82% 70% no-repeat;
+        content: " ";
+        display: inline-block;
+        width: 100px;
+        height: 100px;
+        margin-left: -12px;
+        margin-bottom: 10px;
+        opacity: 0;
+        animation: entryspan var(--transition-timing) forwards;
+        animation-delay: var(--transition-timing);
+        background-size: 400% !important;
+    }
+    .mcmtwo h1:before {
+        background: var(--special-cta-backgroundcolor) url(https://hellodamon.com/img/mcm2.svg) center center no-repeat;
+    }
+    .mcm h1 {
+        line-height: 1.21;
+    }
+    .overlay {
+        flex-direction: column;
+    }
+    p {
+        margin-top: 0;
+    }
+    .bio,
+    .links {
+        order: 2;
+        justify-content: flex-start;
+    }
+    a#sayhi {
+        margin-left: 0;
+        transform: inherit;
+        width: inherit;
+        position: inherit;
+        right: inherit;
+    }
+    .snippet {
+        grid-template-rows: 60px auto;
+    }
+    h1 {
+        font-size: 133px;
+        font-family: Staatliches, cursive;
+        line-height: 140px;
+        margin-left: -16px;
+    }
+    #testimonialsoverlay h2 {
+        left: -269px;
+        font-size: 240px;
+    }
+    #testimonialsoverlay h2 span:nth-child(2) {
+        top: -220px;
+        margin-right: -30px;
+    }
+    ul.mobilelinks a {
+        width: calc(100% + 2px);
+        height: calc(100% + 2px);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: -2px;
+        color: #fff;
+        background: #010101;
+        border: 2px solid #fff;
+    }
+    ul.mobilelinks a:hover {
+        background: var(--special-cta-backgroundcolor);
+    }
+    a#mobileactivationbutton {
+        background: var(--special-cta-backgroundcolor);
+        color: var(--special-cta-color);
+        overflow: overlay;
+    }
+    ul.mobilelinks li {
+        grid-area: 1/1/2/2;
+        transition: var(--transition-timing);
+    }
+    ul.mobilelinks li:nth-child(1) {
+        z-index: 1;
+    }
+    ul.mobilelinks {
+        display: grid;
+    }
+    ul.mobilelinks.active li:nth-child(2) {
+        transition-delay: 0.5s;
+        transform: translatex(calc(-100% - 10px));
+    }
+    ul.mobilelinks.active li:nth-child(3) {
+        transition-delay: 0.25s;
+        transform: translatex(calc(-200% - 20px));
+    }
+    ul.mobilelinks.active li:nth-child(4) {
+        transition-delay: 0s;
+        transform: translatex(calc(-300% - 30px));
+    }
+    .bio {
+        padding-top: 10px;
+    }
+    #mobilelinks.active .open {
+        transform: scalex(1);
+        opacity: 1;
+    }
+    #mobilelinks.active .closed {
+        transform: scalex(0);
+        opacity: 0;
+    }
+    #mobilelinks .closed {
+        transform: scalex(1);
+        opacity: 1;
+    }
+    #mobilelinks .open {
+        transform: scalex(0);
+        opacity: 0;
+    }
+    #mobilelinks.active #mobileactivationbutton {
+        background: #010101;
+        transition: var(--transition-timing);
+    }
+    #mobilelinks .closed,
+    #mobilelinks .open {
+        transition: var(--transition-timing);
+        grid-area: 1/1/2/2;
+    }
+    #mobileactivationbutton {
+        display: grid;
+    }
+}
+@media (max-width: 400px) {
+    .mobilelinks {
+        position: sticky;
+        margin-left: auto;
+        margin-right: 10px;
+        margin-top: -90px;
+    }
+    h1 {
+        padding: 120px 24px 20px 0;
+    }
+}
+@media (min-width: 1080px) {
+    h1 {
+        animation: entry 1s forwards;
+    }
+    .straight .inner {
+        transform: rotate(0);
+        transition: var(--transition-timing);
+    }
+    .straight h1 {
+        transform: rotate(360deg);
+        grid-area: 1/1/2/2;
+        writing-mode: revert;
+        order: 1;
+        padding-left: 20px !important;
+        margin-top: 0;
+    }
+    .straight .inner {
+        margin-top: 0;
+    }
+    .straight .outer {
+        height: auto;
+    }
+    .straight .links {
+        transition: var(--transition-timing);
+        transform: none;
+    }
+    .straight .bio {
+        margin-top: 0;
+    }
+    .straight a#sayhi {
+        transform: rotate(90deg) translate(0);
+        width: 230px;
+        position: absolute;
+        right: 5px;
+    }
+    .straight .snippet {
+        grid-template-columns: 1fr !important;
+    }
+    .mcm h1 {
+        background: linear-gradient(30deg, #f37b46, #f37b46 40%, #f58a4c 60%, #f58a4c);
+    }
+    .mcm .outer {
+        background-image: linear-gradient(180deg, #f37b46, #f37b46 40%, #f58a4c 60%, #f58a4c);
+    }
+    .mcm .inner {
+        background-position: center center;
+    }
+    .mcm .snippet {
+        margin-right: auto;
+    }
+    svg#Layer_1 circle {
+        transform: scale(1.2) translate(-8px, -10px);
+    }
+    .bio,
+    .links {
+        order: 1;
+    }
+    .links2 {
+        order: 2;
+    }
+    h2.a-list-c-header {
+        writing-mode: tb-rl;
+        transform: rotate(180deg) translate(50px, -92px);
+        min-height: 121px;
+    }
+    .inner {
+        transform: rotate(45deg);
+        margin-top: 200px;
+        min-width: 200vw;
+        margin: 280px -50vw 0;
+    }
+    .links2 ul {
+        transform: rotate(-90deg) translate(80px, -380px);
+        width: 300px;
+    }
+    .outer {
+        height: 750px;
+        overflow-y: hidden;
+    }
+    .links a {
+        display: inline-block;
+        margin-right: 0;
+    }
+    .links {
+        transform: translate(0, 230px);
+    }
+    .bio {
+        margin-top: -70px;
+    }
+    .a-inline-c {
+        display: inline-block;
+        overflow: hidden;
+        margin-bottom: -5px;
+    }
+    .a-inline-c a:before {
+        opacity: 0;
+    }
+    .a-inline-c a:focus::before,
+    .a-inline-c a:hover::before {
+        opacity: 1;
+    }
+}
+@media (min-width: 600px) {
+    .outer {
+        overflow-x: hidden;
+    }
+    svg#Layer_1 circle {
+        fill: #fff;
+    }
+}
+@media (max-height: 500px) {
+    a.contactbtn {
+        width: 130px;
+        height: 130px;
+        margin: 10px;
+    }
+    .overlay {
+        flex-direction: row;
+    }
+}
+
+	</style>
+</head>
+
+<body class="discovery">
+	<div class=colorswitcher>
+		<!--<a href="#" aria-label="remove roation from desktop design" id=setRotation onclick="toggleRotation()"></a>-->
+		<a href="#" aria-label="change color scheme to Mid Century Two" id=setMCMBtn2 onclick="setBodyClass('mcmtwo')"></a>
+		<a href="#" aria-label="change color scheme to Mid Century One" id=setMCMBtn onclick="setBodyClass('mcm')"></a>
+		<a href="#" aria-label="change color scheme to Glowstick" id=setGlowstickBtn onclick="setBodyClass('glowstick')"></a>
+		<!--<a href="#" aria-label="change color scheme to Discovery" id=setDiscoveryBtn onclick="setBodyClass('discovery')"></a>-->
+		<a href="#" aria-label="change color scheme to Black and White" id=setBlackAndWhiteBtn onclick="setBodyClass('blackandwhite')"></a>
+	</div>
+	<div class=pagecontainer>
+		<div class=outer>
+			<div class=inner>
+				<div class=city></div>
+				<div id=snippet class=snippet itemscope itemtype="https://schema.org/Person">
+					<h1 id=sitename itemprop=name><span class="first"><span>D</span>AMON</span> <span
+							class="last"><span>H</span>ART</span></span></h1>
+					<div class=bio>
+						<p>I am a web designer and front-end developer living in Portland, Oregon, with over 15 years’ experience helping clients develop their online brand. I’ve been told I play well with others and enjoy collaborating on web projects with teams of all sizes. I specialize in web accessibility remediation and user interface design. I use animation to bring my designs to life and can also handle your product photography, light video editing, and more.</p>
+						<p>Don't be shy, reach out and say hello!</p>
+					</div>
+					<div class=links>
+						<ul>
+							<li><span class=a-list-c><a class="overlay-trigger" data-overlay="biooverlay" rel=noopener href="#">About Damon</a></span></li>
+							<li><span class=a-list-c>
+                                <a rel=noopener class="overlay-trigger" href="#" data-overlay="testimonialsoverlay">Word Around Town</a></span>
+                            </li>
+							<li><span class=a-list-c><a rel=noopener  class="overlay-trigger" href="#" data-overlay="portfoliooverlay">Some Work</a></span></li>
+						</ul>
+					</div>
+					<div class=links2>
+						<ul>
+							<li class="rightlink">
+								<a href="#" id=sayhi aria-label="open contact menu" class="overlay-trigger" data-overlay="overlay">
+									<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+										xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 100"
+										style="enable-background:new 0 0 100 100;" xml:space="preserve">
+										<style type="text/css">
+											.st0 {
+												fill: #fff;
+											}
+										</style>
+										<polygon points="13,80 73.6,80 88,92 88,80 88,20 13,20 "></polygon>
+										<g>
+											<circle class="st0" cx="32.3" cy="52" r="5"></circle>
+											<circle class="st0" cx="49" cy="52" r="5"></circle>
+											<circle class="st0" cx="65.7" cy="52" r="5"></circle>
+										</g>
+									</svg>say hello.
+								</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class=overlay id=overlay>
+		<a id=closeoverlaybtn onclick="closeOverlay()" href="#">
+			[close]
+		</a>
+		<a target="_blank" aria-label="schedule a phone or zoom call" class=contactbtn href="https://calendly.com/hellodamon/">
+			<embed src=phonebtnlabel.svg></embed>
+			<svg alt="" class=phonebtn version="1.1" id="Capa_1a" xmlns="http://www.w3.org/2000/svg"
+				xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 58.981 58.981"
+				style="enable-background:new 0 0 58.981 58.981;" xml:space="preserve">
+				<g>
+					<g>
+						<path style="fill:#545E73;" d="M36.085,58H10.896c-1.881,0-3.405-1.525-3.405-3.405V3.405C7.491,1.525,9.015,0,10.896,0h25.189
+								c1.881,0,3.405,1.525,3.405,3.405v51.189C39.491,56.475,37.966,58,36.085,58z" />
+						<rect x="7.491" y="6" style="fill:#8697CB;" width="32" height="40" />
+						<circle style="fill:#323A45;" cx="23.491" cy="52" r="3" />
+						<path style="fill:#323A45;"
+							d="M23.491,4h-4c-0.553,0-1-0.447-1-1s0.447-1,1-1h4c0.553,0,1,0.447,1,1S24.043,4,23.491,4z" />
+						<path style="fill:#323A45;"
+							d="M27.491,4h-1c-0.553,0-1-0.447-1-1s0.447-1,1-1h1c0.553,0,1,0.447,1,1S28.043,4,27.491,4z" />
+					</g>
+					<g>
+						<path style="fill:var(--main-cta-color)" d="M39.491,42.181c0.969-2.183,3.109-4.2,5.684-4.2c3.467,0,5.964,2.821,6.278,6.183
+								c0,0,0.17,0.835-0.203,2.337c-0.508,2.046-1.701,3.864-3.311,5.251l-8.447,7.228l-8.447-7.229
+								c-1.61-1.387-2.803-3.205-3.311-5.251c-0.373-1.502-0.203-2.337-0.203-2.337c0.314-3.362,2.811-6.183,6.278-6.183
+								C36.381,37.981,38.522,39.998,39.491,42.181z" />
+					</g>
+				</g>
+				<g>
+				</g>
+				<g>
+				</g>
+				<g>
+				</g>
+				<g>
+				</g>
+				<g>
+				</g>
+				<g>
+				</g>
+				<g>
+				</g>
+				<g>
+				</g>
+				<g>
+				</g>
+				<g>
+				</g>
+				<g>
+				</g>
+				<g>
+				</g>
+				<g>
+				</g>
+				<g>
+				</g>
+				<g>
+				</g>
+			</svg>
+
+		</a>
+		<a class=contactbtn aria-label="email me" target="_blank" href="mailto:me@hellodamon.com">
+			<embed src=mailbtnlabel.svg></embed>
+			<svg alt="" class=mailbtn version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+				xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 57 57"
+				style="enable-background:new 0 0 57 57;" xml:space="preserve">
+				<g>
+					<g>
+						<polygon style="fill:#DCD6CD;" points="0,5.5 0,44.5 28,44.5 56,44.5 56,5.5 		" />
+						<path style="fill:#E8E3D9;" d="M30.965,27.607c-1.637,1.462-4.292,1.462-5.93,0l-2.087-1.843C16.419,31.591,0,44.5,0,44.5h21.607
+								h12.787H56c0,0-16.419-12.909-22.948-18.736L30.965,27.607z" />
+						<path style="fill:#EFEBDE;" d="M0,5.5l25.035,22.107c1.637,1.462,4.292,1.462,5.93,0L56,5.5H0z" />
+					</g>
+					<g>
+						<path style="fill:var(--main-cta-color)"
+							d="M45,34.7c0.969-2.183,3.109-4.2,5.684-4.2c3.467,0,5.964,2.821,6.278,6.183
+								c0,0,0.17,0.835-0.203,2.337c-0.508,2.046-1.701,3.864-3.311,5.251L45,51.5l-8.447-7.229c-1.61-1.387-2.803-3.205-3.311-5.251
+								c-0.373-1.502-0.203-2.337-0.203-2.337c0.314-3.362,2.811-6.183,6.278-6.183C41.891,30.5,44.031,32.517,45,34.7z" />
+					</g>
+				</g>
+				<g>
+				</g>
+				<g>
+				</g>
+				<g>
+				</g>
+				<g>
+				</g>
+				<g>
+				</g>
+				<g>
+				</g>
+				<g>
+				</g>
+				<g>
+				</g>
+				<g>
+				</g>
+				<g>
+				</g>
+				<g>
+				</g>
+				<g>
+				</g>
+				<g>
+				</g>
+				<g>
+				</g>
+				<g>
+				</g>
+			</svg>
+		</a>
+	</div>
+	<div id="testimonialsoverlay" class="overlay">
+		<h2><span>FEED</span><span>BACK</span></h2>
+		<a id=closetestbutton href="#" aria-label="close overlay" onclick="closeOverlay()">[close]</a>
+		<div class=slidecontainer>
+			<div class="slide">
+				<p>Damon is one of the best freelancers I have had the pleasure to work with. He communicated great and very fast to respond. His quality of work was beyond measure.</p>
+				<div class=attribution>- My Fit Foods</div>
+			</div>
+			<div class="slide">
+				<p>Damon developed an amazing website homepage for my startup. He was a pleasure to work with. Communicated clearly 
+					and respectfully. Completed my project on time. Gave useful and creative feedback. And he was definitely experienced 
+					and knowledgeable, especially considering the unique website features I requested. I look forward to working with him in the future!</p>
+				<div class=attribution>- Thrive Mental Health</div>
+			</div>
+			<div class="slide">
+				<p>Damon completed the project quickly with great quality and detail. I will be using him for future
+					projects and I enjoyed working with him.</p>
+				<div class=attribution>- Who We Are Digital</div>
+			</div>
+			<div class=slide>
+				<p>Absolutely outstanding in every facet. Couldn't be happier. Will definitely be using going forward.
+				</p>
+				<div class=attribution>- Andrew Detweiler, Rockville Condos</div>
+			</div>
+			<div class=slide>
+				<p>Great designer! Gave him some ideas and themes to work with and he was able to provide a perfect
+					mock-up. Damon paid attention to detail, worked quickly and efficiently and we will definitely be
+					using him again!</p>
+				<div class=attribution>- Onizuka Studio</div>
+			</div>
+			<div class=slide>
+				<p>Damon was a pleasure to work with and completed multiple compelling graphics projects for us. We will
+					use him again.</p>
+				<div class=attribution>- Erik Newton, BrightEdge</div>
+			</div>
+			<div class=slide>
+				<p>Damon is a real professional who took the project and gave me exactly what I was looking for.
+					Excellent worker.</p>
+				<div class=attribution>- CT Business Solutions</div>
+			</div>
+			<div class=slide>
+				<p>One of the best freelancers I've ever had the joy of working with. Thank you so much for your help!
+				</p>
+				<div class=attribution>- Excel Impact</div>
+			</div>
+			<div class=slide>
+				<p>Damon exceeded my expectations. He impressed me so much with his professionalism, communication, and
+					deliverance of my logo that I couldn't visualize or dream up. He saw my vision and wow did he nail
+					it!!! I'm hiring him to do my website and I can't wait to work with him further. Thank you!!</p>
+				<div class=attribution>- Stacey's Yoga</div>
+			</div>
+			<div class=slide>
+				<p>Damon was fast, efficient, skilled and a pleasure to work with. He helped me out in a pinch, and I
+					couldn't recommend him more.</p>
+				<div class=attribution>- N B Inc.</div>
+			</div>
+			<div class=slide>
+				<p>Damon was very capable and responsible to our needs. He got the work done and helped us dig into
+					BigCommerce features and changes from our old template. Would work with Damon again!</p>
+				<div class=attribution>- Raven and Lily</div>
+			</div>
+			<div class=slide>
+				<p>Another great job. Look forward to working with this designer more.</p>
+				<div class=attribution>- Taylor Made Marketing</div>
+			</div>
+			<div class=slide>
+				<p>Damon was great at communicating, checking in, making sure all of the glitches were fixed, and was
+					thorough in his work. Damon really came through and did an amazing job. He is superior at his craft.
+					He found glitches and wrote code to fix them. Absolute amazing experience. Will hire again for sure.
+				</p>
+				<div class=attribution>- Colleen Stutz, A Little Lady Shop</div>
+			</div>
+
+		</div>
+		<a id=testslidenext href="#">[more]</a>
+	</div>
+	<div id=portfoliooverlay class="overlay">
+		<a id="closeportoverlay" onclick="closeOverlay()" href="#">[close]</a>
+		<h2>Examples of My Work</h2>
+		<p>My work here is a few years out of date. Something about the cobbler's children and their shoes comes to
+			mind. I'll be updating it soon, but until then click 'continue' to view my old stuff or ask me for more
+			recent examples.</p>
+		<a target="_blank" class="specialcta" href="https://nomadicdesigns.net">[continue]</a>
+	</div>
+	<div class="overlay" id=biooverlay>
+        <div class="overlay-sb">
+            <a id="closebiooverlay" onclick="closeOverlay()" href="#">[close]</a>
+            <div class="content">
+                <h2>About Damon</h2>
+                <p>I am a web designer and front-end developer living in Portland, Oregon, with over 15 years’ experience helping clients develop their online brand. I’ve been told I play well with others and enjoy collaborating on web projects with teams of all sizes.</p>
+        
+                <p>Web accessibility remediation and user interface design are specialities of mine. My passion for creating an inclusive user experience comes from my years working in social services. When I build solutions for the web, I consider every part of that experience—not just the front end your users will see, but the backend experience as well. If your content creators are struggling with data entry, they are not delivering you the best product that they could. </p>
+        
+                <p>I’m intimately familiar with a variety of CMS (WordPress, Drupal, Big Commerce, Shopify, et al.) and peripherally familiar with more (Magento, NetSuite). I am eager to work outside of any framework or dependencies as well. </p>
+        
+                <p>I strive to give my designs a tangible feeling. I believe, at its finest, the web can deliver an experience as beautiful as flipping through the pages of a magazine while simultaneously providing information as dynamic and easy to navigate as a wiki.</p>
+        
+                <p>Animation brings me a particular pleasure. Interactive elements should be non intrusive while reinforcing the metaphor that the user’s experience is a physical interaction with a digital asset.</p>
+        
+                <p>My other skills include product photography, light video editing, and anything you can throw at me.</p>
+        
+                <p>When I’m not working, you can find me exploring Sellwood in search of cats or goats to pet, kayaking, fishing in Eastern Oregon, or serving my feline overlord (about 90% of my time; let’s be honest).</p>
+            </div>
+        </div>       
+	</div>
+	<script type="text/javascript">
+        let overlays = document.querySelectorAll('.overlay');
+            document.querySelectorAll('.overlay-trigger').forEach(function(i){
+                i.addEventListener('click', function() {
+                    document.getElementById(this.dataset.overlay).classList.add('visible');
+                });
+            });
+            function closeOverlay() {
+                document.querySelectorAll('.overlay').forEach(function(ii){
+                    ii.classList.remove('visible');
+                });
+			}
+			document.onkeydown = function (e) {
+				if (e.key === "Escape") {
+					closeOverlay();
+				}
+			}
+	</script>
+	<!--testimonials slider-->
+	<script type="text/javascript">
+		document.getElementById('testslidenext').addEventListener('click', nexttest);
+		let testslides = document.getElementsByClassName("slide");
+		let currentslide = Math.floor(Math.random() * 10);
+		testslides[currentslide].classList.add('currentslide');
+		function nexttest() {
+			console.log(currentslide);
+			testslides[currentslide].classList.remove('currentslide');
+			currentslide = currentslide + 1;
+			if (testslides[currentslide] == undefined) {
+				currentslide = 0;
+				testslides[currentslide].classList.add('currentslide');
+			}
+			else {
+				testslides[currentslide].classList.add('currentslide');
+			}
+		}
+
+	</script>
+	<!--color picker-->
+	<script type="text/javascript">
+		function getRandomInt(max) {
+			return Math.floor(Math.random() * max);
+		}
+		//color schemes
+		const colorScheme = [
+			'glowstick',
+			'blackandwhite',
+			'mcm',
+			'mcmtwo'		
+		]
+
+		//set colors
+			function setBodyClass(className) {
+				colorSchemePref = className;
+				document.body.className = "";
+				document.body.classList.add(colorSchemePref);
+				localStorage.setItem('colorSchemePref', JSON.stringify(colorSchemePref));
+			}
+			function toggleRotation() {
+				if (document.querySelectorAll('html')[0].classList.contains('straight')) {
+					document.querySelectorAll('html')[0].classList.remove('straight');
+				}else {
+					document.querySelectorAll('html')[0].classList.add('straight');
+				}
+			}
+	</script>
+
+</body>
+
+</html>
